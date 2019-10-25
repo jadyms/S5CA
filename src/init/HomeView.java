@@ -61,50 +61,62 @@ public class HomeView extends JFrame {
     public void HomePanel() {
         //Creating Panel 2
         JPanel myPanel2 = new JPanel();
-        String b1 = "Manage Customer";
-        String b2 = "Manage Titles";
-        String b3 = "Manage Rental";
-        String b4 = "Loyalty Card";
-        //Buttons for Panel 2
-        JButton btn1 = new JButton(b1);
-        JButton btn2 = new JButton(b2);
-        JButton btn3 = new JButton(b3);
-        JButton btn4 = new JButton(b4);
+        
+        String b1 = "Add candidate to queue";
+        String b2 = "Update candidate information ";
+        String b3 = "Check position by ID";
+        String b4 = "Cut off from end of the queue";
+        String b5 = "Remove candidate from queue";
+        String b6 = "Logout";
+        
+    
+         
+        JButton button1 = new JButton(b1);
+        JButton button2 = new JButton(b2);
+        JButton button3 = new JButton(b3);
+        JButton button4 = new JButton(b4);
+        JButton button5 = new JButton(b5);
+        JButton button6 = new JButton(b6);
 
         //Add Action command
-        btn1.setActionCommand(b1);
-        btn2.setActionCommand(b2);
-        btn3.setActionCommand(b3);
-        btn4.setActionCommand(b4);
+        button1.setActionCommand(b1);
+        button2.setActionCommand(b2);
+        button3.setActionCommand(b3);
+        button4.setActionCommand(b4);
+        button5.setActionCommand(b5);
+        button6.setActionCommand(b6);
+
 
         //Add Action Listeners
  
-        btn1.addActionListener(new ActionListener() {
+        button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //To manage a Customer - add a customer or manage an existing customer
                 //Create a rent for selected customer
                 //Update customer information
                 //Manage an existing customer rental
-                DefaultPanel customer = new DefaultPanel();
-                customer.TwoButtonPanel("Customer","Add Customer", "Manage existing customer");
+              //  DefaultPanel customer = new DefaultPanel();
+                //customer.TwoButtonPanel("Customer","Add Customer", "Manage existing customer");
+                System.out.println(b1);
             }
         });
 
-        btn2.addActionListener(new ActionListener() {
+        button2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //To manage titles options
-                DefaultPanel customer = new DefaultPanel();
-                customer.TwoButtonPanel("Titles","Add Title", "Manage existing title");
+               // DefaultPanel customer = new DefaultPanel();
+                //customer.TwoButtonPanel("Titles","Add Title", "Manage existing title");
                 //TitlesView titles = new TitlesView();
                 //titles.TitlesPanel();
+                System.out.println(b2);
             }
         });
 
-        btn3.addActionListener(new ActionListener() {
+        button3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //To manage rental options
                 
-                JOptionPane.showMessageDialog(null, "Work in Progress. Use Manage Customer area for this feature");
+                JOptionPane.showMessageDialog(null, b3);
                 
                 
                 //DefaultPanel customer = new DefaultPanel();
@@ -113,10 +125,38 @@ public class HomeView extends JFrame {
             }
         });
 
-        btn4.addActionListener(new ActionListener() {
+        button4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //To manage Loyalty Card
-                JOptionPane.showMessageDialog(null, "Option not available. Summer project for this feature here...");
+                JOptionPane.showMessageDialog(null, b4);
+                
+               // Model myModel = new Model();
+                //ResultSet rs = myModel.showPoints();
+
+                //LoyaltyCardView loyaltyCard = new LoyaltyCardView();
+                //loyaltyCard.viewPoints(rs);
+
+            }
+        });
+        
+        button5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //To manage Loyalty Card
+                JOptionPane.showMessageDialog(null, b5);
+                
+               // Model myModel = new Model();
+                //ResultSet rs = myModel.showPoints();
+
+                //LoyaltyCardView loyaltyCard = new LoyaltyCardView();
+                //loyaltyCard.viewPoints(rs);
+
+            }
+        });
+        
+        button6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //To manage Loyalty Card
+                JOptionPane.showMessageDialog(null, b6);
                 
                // Model myModel = new Model();
                 //ResultSet rs = myModel.showPoints();
@@ -128,10 +168,12 @@ public class HomeView extends JFrame {
         });
 
         //Add Buttons to Panel 2
-        myPanel2.add(btn1);
-        myPanel2.add(btn2);
-        myPanel2.add(btn3);
-        myPanel2.add(btn4);
+        myPanel2.add(button1);
+        myPanel2.add(button2);
+        myPanel2.add(button3);
+        myPanel2.add(button4);
+        myPanel2.add(button5);
+        myPanel2.add(button6);
 
         //Panel 2 Grid layout
         GridLayout mgr = new GridLayout(2, 2);

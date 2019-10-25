@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package init;
+
+import gui.PersonModel;
 
 /**
  *
@@ -19,7 +21,8 @@ public class Main {
            //customers
            PersonModel personModel = new PersonModel();
            personModel.getPerson();
-        new MainScreen();
+       // new MainScreen();
+       new HomeView();
     }
     
 }
