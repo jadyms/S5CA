@@ -5,6 +5,7 @@
  */
 package init;
 
+import gui.AddPersonView;
 import gui.Person;
 import gui.PersonView;
 import java.awt.BorderLayout;
@@ -71,7 +72,7 @@ public class HomeView extends JFrame {
         String b3 = "Check position by ID";
         String b4 = "Cut off from end of the queue";
         String b5 = "Remove candidate from queue";
-        String b6 = "Logout";
+        String b6 = "Check queue";
         
     
          
@@ -97,11 +98,12 @@ public class HomeView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //Add a candidate to queue
                 
-                PersonView person = new PersonView();
-                person.newPersonForm();
+                AddPersonView addPerson = new AddPersonView();
+                addPerson.newPersonForm();
               //  DefaultPanel customer = new DefaultPanel();
                 //customer.TwoButtonPanel("Customer","Add Customer", "Manage existing customer");
-                System.out.println(b1);
+                
+               
             }
         });
 
@@ -159,14 +161,10 @@ public class HomeView extends JFrame {
         button6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //To manage Loyalty Card
-                JOptionPane.showMessageDialog(null, b6);
+                JOptionPane.showMessageDialog(null, personView.populateTable());
                 
-               // Model myModel = new Model();
-                //ResultSet rs = myModel.showPoints();
-
-                //LoyaltyCardView loyaltyCard = new LoyaltyCardView();
-                //loyaltyCard.viewPoints(rs);
-
+       
+             
             }
         });
 
@@ -178,19 +176,20 @@ public class HomeView extends JFrame {
         myPanel2.add(button5);
         myPanel2.add(button6);
         
-        JPanel tablePanel = personView.populateTable();
+        
+      //  JPanel tablePanel = personView.populateTable();
         JPanel container = new JPanel();
-        myPanel2.add(tablePanel);
+        //myPanel2.add(tablePanel);
         container.add(myPanel2);
-        container.add(tablePanel);
+        //container.add(tablePanel);
         
 
         //Panel 2 Grid layout
-        GridLayout mgr = new GridLayout(2, 2);
+        GridLayout mgr = new GridLayout(3, 2);
         myPanel2.setLayout(mgr);
 
         //Placing panel into the frame
-        mainPanel("Select an option", container, "Logout", "Go back");
+        mainPanel("Select an option", myPanel2, "Logout", "Go back");
 
     }
 

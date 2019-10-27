@@ -20,7 +20,7 @@ import javax.swing.event.ListSelectionListener;
  */
 public class PersonController implements ActionListener, ListSelectionListener{
     
-    PersonView personView; 
+    AddPersonView addPersonView; 
     PersonModel personModel = new PersonModel();
     Person person = new Person();
 
@@ -34,22 +34,22 @@ public class PersonController implements ActionListener, ListSelectionListener{
 
             //generate a loyalty number
             //from the last number created
-            //int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
+             int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
           
-            personView = new PersonView();
+            addPersonView = new AddPersonView();
             //create a new customer and add it to array
             personModel.persons.add(new Person(
-                    //String.valueOf(last),
-                    "4",
-                    personView.getFirstName(),
-                    personView.getLastName(),
-                     personView.getDoa(),
-                    personView.getPassport(),
-                    personView.getQueuePosition()
+                   String.valueOf(last),
+                   addPersonView.getFirstName(),
+                    addPersonView.getLastName(),
+                     addPersonView.getDate(),
+                    addPersonView.getPassport(),
+                    addPersonView.getPriority()
                                       
             ));
 
             System.out.println(person);
+          
              JOptionPane.showMessageDialog(null, "Customer created. You can manage details in Manage Customer");
 
         }

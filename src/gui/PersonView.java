@@ -31,8 +31,8 @@ import javax.swing.table.DefaultTableModel;
 public class PersonView extends JFrame{
 
     private String[][] data = new String[10][6];
-    static JTable searchPerson;
-    static JTable table;
+    public static JTable searchPerson;
+    public static JTable table;
     private static String id;
      private static String firstName;
     private static    String lastName;
@@ -40,6 +40,7 @@ public class PersonView extends JFrame{
         private static String passport;
         private static String queuePosition;
         static JButton[] options = new JButton[3]   ;
+        public static DefaultTableModel model;
       
 
     HomeView homeView;
@@ -51,7 +52,7 @@ public class PersonView extends JFrame{
     public JPanel populateTable() {
         //###### THIS CODE IN A SEPARATE METHOD #######
         table = new JTable();
-        DefaultTableModel model = new DefaultTableModel();
+         model = new DefaultTableModel();
         Object[] columnsName = new Object[6];
         columnsName[0] = "ID";
         columnsName[1] = "First Name";
@@ -86,6 +87,7 @@ public class PersonView extends JFrame{
         table.setPreferredScrollableViewportSize(table.getPreferredSize());
         table.setFillsViewportHeight(false);
         table.getSelectionModel().addListSelectionListener(personController);
+        
         //Panel which we add the table to  table 
         JPanel myPanel = new JPanel();
         
@@ -100,7 +102,8 @@ public class PersonView extends JFrame{
         return myPanel;
       }
     
-   public void newPersonForm(){
+  /*
+     public void newPersonForm(){
        //Panel for form 
         JPanel form = new JPanel(new GridBagLayout());
 
@@ -192,19 +195,15 @@ public class PersonView extends JFrame{
         bsubmit.addActionListener(titleController);
         
                 
-        */
+        
 
                 //alertDialog("Fulano: your ID is xx and position xx");
                 //inputDialog("Enter ID to find position");
     
      
    }
-  public void showJPanel(){
-      
-     // homeView = new HomeView("Select a customer", populateTable(), "Logout", "Go back");
-
-  }
-
+  
+    */
              
     
     public String getFirstName(){
