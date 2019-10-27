@@ -5,11 +5,22 @@
  */
 package gui;
 
+
+import init.HomeView;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,9 +42,10 @@ public class PersonView extends JFrame{
         static JButton[] options = new JButton[3]   ;
       
 
-    //HomeView homeView;
+    HomeView homeView;
       //  PersonModel pmodel = new PersonModel();
    PersonModel personModel= new PersonModel();
+   PersonController personController; 
   // CustomerController customerController = new CustomerController();
 
     public JPanel populateTable() {
@@ -41,32 +53,22 @@ public class PersonView extends JFrame{
         table = new JTable();
         DefaultTableModel model = new DefaultTableModel();
         Object[] columnsName = new Object[6];
-        columnsName[0] = "First Name";
-        columnsName[1] = "Last Name";
-        columnsName[2] = "Subscription";
-        columnsName[3] = "Card Number";
-        columnsName[4] = "Loyalty card";
-        columnsName[5] = "Titles hold";
+        columnsName[0] = "ID";
+        columnsName[1] = "First Name";
+        columnsName[2] = "Last Name";
+        columnsName[3] = "DOA";
+        columnsName[4] = "Passport";
+        columnsName[5] = "Priority";
 
         model.setColumnIdentifiers(columnsName);
         Object[] rowData = new Object[6];
-//
-//        for (int i = 0; i < personModel.getCustomers().size(); i++) {
-//
-//            rowData[0] = personModel.getCustomers().get(i).getFirstname();
-//            rowData[1] = personModel.getCustomers().get(i).getLastname();
-//            rowData[2] = personModel.getCustomers().get(i).getSubscription();
-//            rowData[3] = personModel.getCustomers().get(i).getCard();
-//            rowData[4] = personModel.getCustomers().get(i).getLoyaltyNumber();
-//            rowData[5] = personModel.getCustomers().get(i).getHold();
-//            model.addRow(rowData);
-//
-//        }
-         for (int i = 0; i < personModel.persons.size(); i++) {
 
-            rowData[0] = personModel.persons.get(i).getFirstname();
-            rowData[1] = personModel.persons.get(i).getLastname();
-            rowData[2] = personModel.persons.get(i).getId();
+         for (int i = 0; i < personModel.persons.size(); i++) {
+             System.out.println(personModel.persons.size());
+
+            rowData[0] = personModel.persons.get(i).getId();
+            rowData[1] = personModel.persons.get(i).getFirstname();
+            rowData[2] = personModel.persons.get(i).getLastname();
             rowData[3] = personModel.persons.get(i).getDoa();
             rowData[4] = personModel.persons.get(i).getPassport();
             rowData[5] = personModel.persons.get(i).getQueuePosition();
@@ -74,25 +76,7 @@ public class PersonView extends JFrame{
             
    
         }
-        
-             //When selecting a row, JDialog will print 
-        //the options below
-        //to trigger action Listener for each one
-        //This should be in a inner class as a List =/
-        /*options[0] = new JButton("Update Customer");
-        options[1] = new JButton("Create Rental from ");
-        options[2] = new JButton("Manage Rental");
-        
-        options[0].setActionCommand("Update Customer");
-        options[1].setActionCommand("Create Rental from customer Loyalty Card");
-        options[2].setActionCommand("Manage Rental");
-        RentalController rentalController = new RentalController();
-        
-         options[0].addActionListener(rentalController);
-        options[1].addActionListener(rentalController);
-        options[2].addActionListener(rentalController);
-        */
-        
+       
         
         JScrollPane sp = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
        
@@ -101,7 +85,7 @@ public class PersonView extends JFrame{
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.setPreferredScrollableViewportSize(table.getPreferredSize());
         table.setFillsViewportHeight(false);
-        //table.getSelectionModel().addListSelectionListener(customerController);
+        table.getSelectionModel().addListSelectionListener(personController);
         //Panel which we add the table to  table 
         JPanel myPanel = new JPanel();
         
@@ -116,9 +100,105 @@ public class PersonView extends JFrame{
         return myPanel;
       }
     
-    public void showArray(){
+   public void newPersonForm(){
+       //Panel for form 
+        JPanel form = new JPanel(new GridBagLayout());
+
+        //Setting Layout
+        GridBagConstraints fgbc = new GridBagConstraints();
+        fgbc.fill = GridBagConstraints.HORIZONTAL;
+
+        //Form Labels
+        JLabel name = new JLabel("Name: ");
+        fgbc.gridx = 0; //leftmost column
+        fgbc.gridy = 0; //top row
+        fgbc.gridwidth = 1; //1 cell
+        form.add(name, fgbc);
+
+        JLabel surname = new JLabel("Surname: ");
+        fgbc.gridx = 0; //leftmost column
+        fgbc.gridy = 1; // row 1
+        fgbc.gridwidth = 1; //1 cell
+        form.add(surname, fgbc);
+
+        JLabel dateOfArrival = new JLabel("Date of Arrival: ");
+        fgbc.gridx = 0; //leftmost column
+        fgbc.gridy = 2; // row 3
+        fgbc.gridwidth = 1; //1 cell
+        form.add(dateOfArrival, fgbc);
+
+        JLabel passport = new JLabel("Passport: ");
+        fgbc.gridx = 0; //leftmost column
+        fgbc.gridy = 3; // row 4
+        fgbc.gridwidth = 1; //1 cell
+        form.add(passport, fgbc);
+
+        JLabel priority = new JLabel("Priority: ");
+        priority.setForeground(Color.red);
+        fgbc.gridx = 0; //leftmost column
+        fgbc.gridy = 4; // row 5
+        fgbc.gridwidth = 1; //1 cell
+        form.add(priority, fgbc);
+
+        //Form textfield       
+        JTextField tfName = new JTextField(20);
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 0; //top row
+        fgbc.gridwidth = 3; //3 cell
+        form.add(tfName, fgbc);
+
+        JTextField tfSurname = new JTextField();
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 1; // row 1
+        fgbc.gridwidth = 3; //3 cell
+        form.add(tfSurname, fgbc);
+
+        JTextField tfDate = new JTextField();
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 2; // row 2
+        fgbc.gridwidth = 3; //3 cell
+        form.add(tfDate, fgbc);
+
+        JTextField tfPassport = new JTextField();
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 3; // row 2
+        fgbc.gridwidth = 3; //3 cell
+        form.add(tfPassport, fgbc);
+
+        String[] priorityLevels = {"Low", "Medium", "High"};
+        JComboBox tfPriority = new JComboBox(priorityLevels);
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 4; // row 3
+        fgbc.gridwidth = 3; //3 cell
+        form.add(tfPriority, fgbc);
+
+        //Button
+        JButton btnSubmit = new JButton("Submit");
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 7; // row 6
+        fgbc.gridwidth = 4; //3 cell
+        form.add(btnSubmit, fgbc);
+        btnSubmit.setActionCommand("Submit");
+        personController = new PersonController();
+        btnSubmit.addActionListener(personController);
         
-    }
+        //place panel in the main frame
+        HomeView homeView = new HomeView("Add person to the queue ", form, "Logout", "Go back");
+
+        /*
+        
+        //Action events in the controller
+        titleController = new TitleController();
+        bsubmit.addActionListener(titleController);
+        
+                
+        */
+
+                //alertDialog("Fulano: your ID is xx and position xx");
+                //inputDialog("Enter ID to find position");
+    
+     
+   }
   public void showJPanel(){
       
      // homeView = new HomeView("Select a customer", populateTable(), "Logout", "Go back");

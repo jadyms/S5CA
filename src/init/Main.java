@@ -6,6 +6,7 @@
 package init;
 
 import gui.PersonModel;
+import gui.PersonView;
 
 /**
  *
@@ -21,6 +22,9 @@ public class Main {
            //customers
            PersonModel personModel = new PersonModel();
            personModel.getPerson();
+           
+     
+           
        // new MainScreen();
        new HomeView();
     }

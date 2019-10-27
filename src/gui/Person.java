@@ -13,14 +13,14 @@ package gui;
 public class Person {
     //attrubutes
     
-    private static String id;
-    private static String firstName;
-    private static String lastName;
-    private static String doa;
-    private static String passport;
-    private static String queuePosition;
+    private  String id;
+    private  String firstName;
+    private  String lastName;
+    private  String doa;
+    private  String passport;
+    private  String queuePosition;
    
-   PersonView personView = new PersonView();
+ //  PersonView personView = new PersonView();
 
     public Person(String id, String firstName, String lastName, String doa, String passport, String queuePosition) {
         this.id = id;
@@ -30,6 +30,10 @@ public class Person {
         this.passport = passport;
         this.queuePosition = queuePosition;
 
+    }
+    
+    public Person(){
+        
     }
  
     //getters

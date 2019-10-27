@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Assignments">
-            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/src/init/HomeView.java</file>
-            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/gui/Main.java</file>
-            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/src/init/Logout.java</file>
-            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/src/init/DefaultPanel.java</file>
+            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/model/db.java</file>
             <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/gui/MainScreen.java</file>
+            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/gui/Person.java</file>
+            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/init/Main.java</file>
+            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/controler/PersonController.java</file>
+            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/gui/PersonView.java</file>
+            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/gui/PersonModel.java</file>
+            <file>file:/C:/Users/JadyMartins/Documents/NetBeansProjects/2017255/src/model/Model.java</file>
         </group>
     </open-files>
 </project-private>

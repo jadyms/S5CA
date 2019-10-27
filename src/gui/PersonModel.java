@@ -10,8 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Model;
-import model.db;
 
 /**
  *
@@ -19,7 +17,7 @@ import model.db;
  */
 public class PersonModel {
     
-       static ArrayList<Person> persons;
+        public static ArrayList<Person> persons;
       
     public PersonModel(){
         
@@ -63,12 +61,12 @@ public class PersonModel {
         return persons;
 
     }
-    /*
-    public String getLastLoyaltyNumber(){
+    
+    public String getLastID(){
          
-         int last =  Integer.parseInt(users.get(users.size()-1).getLoyaltyNumber())+1;
+         int last =  Integer.parseInt(persons.get(persons.size()-1).getId())+1;
         System.out.println(String.valueOf(last));
          return String.valueOf(last);
     }
-    */
+    
 }

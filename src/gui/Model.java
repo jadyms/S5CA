@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package gui;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -25,8 +25,8 @@ public class Model {
 
         newdb = new db();
     }
-
-     public ResultSet showPerson() {
+/*
+    public ResultSet showPerson() {
 
         String query = "SELECT * FROM person;";
         
@@ -35,9 +35,12 @@ public class Model {
         return rs;
 
     }
+    */
+     
      
       public ResultSet showPerson(String q) {
 
+        
         String query = q;
 
         rs = newdb.newQuery(query);

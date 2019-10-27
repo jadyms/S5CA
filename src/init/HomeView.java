@@ -5,6 +5,8 @@
  */
 package init;
 
+import gui.Person;
+import gui.PersonView;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -31,6 +33,8 @@ public class HomeView extends JFrame {
     String message;
     String logout;
     String goback;
+    
+    PersonView personView = new PersonView();
 
     //first panel when system is initialized
     public HomeView() {
@@ -91,10 +95,10 @@ public class HomeView extends JFrame {
  
         button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //To manage a Customer - add a customer or manage an existing customer
-                //Create a rent for selected customer
-                //Update customer information
-                //Manage an existing customer rental
+                //Add a candidate to queue
+                
+                PersonView person = new PersonView();
+                person.newPersonForm();
               //  DefaultPanel customer = new DefaultPanel();
                 //customer.TwoButtonPanel("Customer","Add Customer", "Manage existing customer");
                 System.out.println(b1);
@@ -114,10 +118,9 @@ public class HomeView extends JFrame {
 
         button3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //To manage rental options
-                
-                JOptionPane.showMessageDialog(null, b3);
-                
+                //Check position by id
+                String id = JOptionPane.showInputDialog(null,"Insert ID to get your position","Alert",JOptionPane.INFORMATION_MESSAGE);
+                System.out.println(id);
                 
                 //DefaultPanel customer = new DefaultPanel();
                 //customer.TwoButtonPanel("Rental","Create Rental from customer Loyalty Card", "Return Rental");
@@ -174,13 +177,20 @@ public class HomeView extends JFrame {
         myPanel2.add(button4);
         myPanel2.add(button5);
         myPanel2.add(button6);
+        
+        JPanel tablePanel = personView.populateTable();
+        JPanel container = new JPanel();
+        myPanel2.add(tablePanel);
+        container.add(myPanel2);
+        container.add(tablePanel);
+        
 
         //Panel 2 Grid layout
         GridLayout mgr = new GridLayout(2, 2);
         myPanel2.setLayout(mgr);
 
         //Placing panel into the frame
-        mainPanel("Select an option", myPanel2, "Logout", "Go back");
+        mainPanel("Select an option", container, "Logout", "Go back");
 
     }
 
