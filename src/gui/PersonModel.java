@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class PersonModel {
     
         public static ArrayList<Person> persons;
-      
+     // public static DoublyLinkedList<Person> persons;
     public PersonModel(){
         
     }

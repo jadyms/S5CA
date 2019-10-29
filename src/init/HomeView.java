@@ -7,6 +7,7 @@ package init;
 
 import gui.AddPersonView;
 import gui.Person;
+import gui.PersonModel;
 import gui.PersonView;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -34,6 +35,7 @@ public class HomeView extends JFrame {
     String message;
     String logout;
     String goback;
+    String id;
     
     PersonView personView = new PersonView();
 
@@ -121,8 +123,34 @@ public class HomeView extends JFrame {
         button3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //Check position by id
-                String id = JOptionPane.showInputDialog(null,"Insert ID to get your position","Alert",JOptionPane.INFORMATION_MESSAGE);
-                System.out.println(id);
+               
+               id = JOptionPane.showInputDialog(null,"Insert ID to get your position","Alert",JOptionPane.INFORMATION_MESSAGE);
+               
+                PersonModel personModel = new PersonModel();
+                
+                if(personModel.persons.contains("Hugh")){
+                    System.out.println("yes");
+                } else{
+                      System.out.println("no");
+                }
+               /*
+                    for(int i = 0; i<personModel.persons.size(); i++){
+                 int idInt = Integer.valueOf(id);
+                         System.out.println(i);
+                         
+                     int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId());     
+                    if(last == idInt ){
+                        System.out.println("they match");;
+            }
+        }
+                System.out.println("no match");;
+             
+                    */       
+              
+                
+                        
+                
+            
                 
                 //DefaultPanel customer = new DefaultPanel();
                 //customer.TwoButtonPanel("Rental","Create Rental from customer Loyalty Card", "Return Rental");
