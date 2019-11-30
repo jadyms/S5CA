@@ -26,7 +26,7 @@ public class Main {
            personModel.getPerson();
            
            DoublyLinkedList dList = new DoublyLinkedList();  
-             dList.addNode(100,1);
+            
         //Add nodes to the list  
         /*
         dList.addNode(new Person(

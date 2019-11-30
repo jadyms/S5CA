@@ -15,7 +15,7 @@ public enum Priority {
     MEDIUM(2),
     HIGH(1);
     
-    private int priorityLevels;
+    private final int priorityLevels;
     
     Priority(final int priorityLevels){
         this.priorityLevels = priorityLevels;

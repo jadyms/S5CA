@@ -12,23 +12,24 @@ import gui.Person;
  * @author JadyMartins
  * @param <Person>
  */
-public class DoublyLinkedList <E> {
+public class DoublyLinkedList <Person> {
     
-    Node<E> head;
-    Node<E>  tail;
+    Node<Person> head;
+    Node<Person>  tail;
     int size;
     
     public DoublyLinkedList(){
        
     }
-      public void addNode(int data, int p){
+      public void addNode(Person person, int p){
         
          
          //creating a new node
-            Node<E> newNode = new Node();
-            //list is empty            
-            if (head == null){ 
-                              
+            Node<Person> newNode = new Node(person);
+            
+            
+            if (head == null){ //list is empty
+                
                 //head  and tail points to new Node
                 head = newNode; 
                 tail = newNode; 
@@ -67,7 +68,7 @@ public class DoublyLinkedList <E> {
              System.out.println("No one on the queue");
          } else{
              while(actualNode != null){
-                 System.out.println(actualNode.toString());
+                 System.out.println(actualNode.person.toString() + "");
                  actualNode = actualNode.next;
                  
              }

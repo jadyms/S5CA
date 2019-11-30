@@ -19,6 +19,7 @@ public class Person {
     private  String doa;
     private  String passport;
     private  String priority;
+    private int prt;
    
  //  PersonView personView = new PersonView();
 
@@ -32,6 +33,16 @@ public class Person {
 
     }
     
+    //Conversion between priority int and string
+    public Person(String id, String firstName, String lastName, String doa, String passport, int prt) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.doa = doa;
+        this.passport = passport;
+        this.prt = prt;
+
+    }
     public Person(){
         
     }

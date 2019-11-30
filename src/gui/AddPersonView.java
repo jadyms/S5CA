@@ -42,9 +42,15 @@ public class AddPersonView extends JFrame{
     
     //Getters
     public String getPriority() {
-
+     
         return String.valueOf(priorityType.getSelectedItem());
         
+    }
+    
+    public int getPriorityNumber(){
+             Priority prt =  (Priority) priorityType.getSelectedItem();
+             System.out.println(prt.getPriorityLevels());
+        return prt.getPriorityLevels();
     }
 
       public String getFirstName() {

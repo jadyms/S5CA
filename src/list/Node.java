@@ -13,7 +13,7 @@ import gui.Priority;
  * @author JadyMartins
  * @param <Person>
  */
-public class Node<E> {
+public class Node<Person> {
     
     Person person;
     int data; //this should be person
@@ -23,22 +23,11 @@ public class Node<E> {
     int p;
     
     
-    /*
-     public Node(Person person){
+      
+    public Node(Person person){
         this.person = person;
-        previous = null;
+              previous = null;
         next = null;
-    };
-    */  
-    public Node(){
-        this.data = data;
-        previous = null;
-        next = null;
-    };
-
-    
-    
-    
-    
+        }
     
 }

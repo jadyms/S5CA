@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import list.Node;
 
 /**
  *
@@ -32,6 +33,15 @@ public class PersonController implements ActionListener, ListSelectionListener{
              int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
           
             addPersonView = new AddPersonView();
+            Node node = new Node(new Person(
+                   String.valueOf(last),
+                   addPersonView.getFirstName(),
+                    addPersonView.getLastName(),
+                     addPersonView.getDate(),
+                    addPersonView.getPassport(),
+                    addPersonView.getPriorityNumber()) 
+            );
+            
             
             //create a new customer and add it to array
             personModel.persons.add(new Person(
@@ -46,7 +56,7 @@ public class PersonController implements ActionListener, ListSelectionListener{
             
             
 
-            System.out.println(person);
+
           
              JOptionPane.showMessageDialog(null, "Customer created. You can manage details in Manage Customer");
 
