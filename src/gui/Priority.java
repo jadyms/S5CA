@@ -11,8 +11,18 @@ package gui;
  */
 public enum Priority {
     
-    LOW,
-    MEDIUM,
-    HIGH,
+    LOW(3),
+    MEDIUM(2),
+    HIGH(1);
     
+    private int priorityLevels;
+    
+    Priority(final int priorityLevels){
+        this.priorityLevels = priorityLevels;
+           
+    }
+    public int getPriorityLevels(){
+        return priorityLevels;
+        
+    }
 }

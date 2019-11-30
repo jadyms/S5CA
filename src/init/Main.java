@@ -5,6 +5,7 @@
  */
 package init;
 
+import gui.Person;
 import gui.PersonModel;
 import gui.PersonView;
 import list.DoublyLinkedList;
@@ -25,12 +26,39 @@ public class Main {
            personModel.getPerson();
            
            DoublyLinkedList dList = new DoublyLinkedList();  
+             dList.addNode(100,1);
         //Add nodes to the list  
-        dList.addNode(1);  
-        dList.addNode(2);  
-        dList.addNode(3);  
-        dList.addNode(4);  
-        dList.addNode(5);  
+        /*
+        dList.addNode(new Person(
+                   "1",
+                   "Jady",
+                    "Silva",
+                    "29-10-89",
+                    "Fm026271",
+                    "High"
+                                      
+            ),2);  
+        dList.addNode(new Person(
+                   "1",
+                   "Hugh",
+                    "Oleary",
+                    "29-10-89",
+                    "Fm026271",
+                    "High"
+                                      
+            ),1);  
+        dList.addNode(new Person(
+                   "1",
+                   "Fulano",
+                    "Oleary",
+                    "29-10-89",
+                    "Fm026271",
+                    "High"
+                                      
+            ),1); 
+     
+      
+        */
   
         //Displays the nodes present in the list  
         dList.showQueue();  

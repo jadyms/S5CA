@@ -28,15 +28,11 @@ public class PersonController implements ActionListener, ListSelectionListener{
     public void actionPerformed(ActionEvent e) {
     
         if(e.getActionCommand().equals("Submit")){
-            
-              //add the new customer to the array of customers
- 
-
-            //generate a loyalty number
-            //from the last number created
+        //Create ID
              int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
           
             addPersonView = new AddPersonView();
+            
             //create a new customer and add it to array
             personModel.persons.add(new Person(
                    String.valueOf(last),
@@ -47,6 +43,8 @@ public class PersonController implements ActionListener, ListSelectionListener{
                     addPersonView.getPriority()
                                       
             ));
+            
+            
 
             System.out.println(person);
           
@@ -59,5 +57,7 @@ public class PersonController implements ActionListener, ListSelectionListener{
     public void valueChanged(ListSelectionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

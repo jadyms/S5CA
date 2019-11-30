@@ -72,7 +72,7 @@ public class PersonView extends JFrame{
             rowData[2] = personModel.persons.get(i).getLastname();
             rowData[3] = personModel.persons.get(i).getDoa();
             rowData[4] = personModel.persons.get(i).getPassport();
-            rowData[5] = personModel.persons.get(i).getQueuePosition();
+            rowData[5] = personModel.persons.get(i).getPriority();
             model.addRow(rowData);
             
    

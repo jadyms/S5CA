@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import list.DoublyLinkedList;
 
 /**
  *
@@ -190,7 +191,30 @@ public class HomeView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //To manage Loyalty Card
                 JOptionPane.showMessageDialog(null, personView.populateTable());
+                 DoublyLinkedList dList = new DoublyLinkedList();
+                 dList.addNode(100,1);
+               
+                 /*dList.addNode(new Person(
+                   "1",
+                   "person1",
+                    "Oleary",
+                    "29-10-89",
+                    "Fm026271",
+                    "High"
+                                      
+            ),2); 
+                dList.addNode(new Person(
+                   "1",
+                   "person2",
+                    "Oleary",
+                    "29-10-89",
+                    "Fm026271",
+                    "High"
+                                      
+            ),1); 
                 
+*/
+                dList.showQueue();
        
              
             }
