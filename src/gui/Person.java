@@ -73,6 +73,9 @@ public class Person {
         return this.priority;
     }
        
+     public int getPriorityNumber() {
+        return this.prt;
+    }
     
     /*
      public void FillCustomerForm(String fname, String lname, String subscription, String card, String loyalty_card) {

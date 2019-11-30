@@ -6,7 +6,6 @@
 package list;
 
 import gui.Person;
-import gui.Priority;
 
 /**
  *
@@ -16,17 +15,16 @@ import gui.Priority;
 public class Node<Person> {
     
     Person person;
-    int data; //this should be person
     Node previous;
     Node next;
-    Priority priority;
     int p;
     
     
       
-    public Node(Person person){
+    public Node(Person person, int p){
         this.person = person;
-              previous = null;
+        this.p = p;
+        previous = null;
         next = null;
         }
     

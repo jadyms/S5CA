@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import list.DoublyLinkedList;
 import list.Node;
 
 /**
@@ -31,17 +32,22 @@ public class PersonController implements ActionListener, ListSelectionListener{
         if(e.getActionCommand().equals("Submit")){
         //Create ID
              int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
+                addPersonView = new AddPersonView();
           
-            addPersonView = new AddPersonView();
-            Node node = new Node(new Person(
+                     DoublyLinkedList dList = new DoublyLinkedList(); 
+                     dList.addNode(new Person(
                    String.valueOf(last),
                    addPersonView.getFirstName(),
                     addPersonView.getLastName(),
                      addPersonView.getDate(),
                     addPersonView.getPassport(),
-                    addPersonView.getPriorityNumber()) 
-            );
-            
+                    addPersonView.getPriority()),
+                             addPersonView.getPriorityNumber());
+                     
+                  dList.showQueue(); 
+                  System.out.println(addPersonView.getPriorityNumber());
+                  
+              
             
             //create a new customer and add it to array
             personModel.persons.add(new Person(

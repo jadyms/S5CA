@@ -25,7 +25,7 @@ public class DoublyLinkedList <Person> {
         
          
          //creating a new node
-            Node<Person> newNode = new Node(person);
+            Node<Person> newNode = new Node(person,p);
             
             
             if (head == null){ //list is empty
