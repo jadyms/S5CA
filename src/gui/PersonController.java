@@ -42,10 +42,10 @@ public class PersonController implements ActionListener, ListSelectionListener{
                      addPersonView.getDate(),
                     addPersonView.getPassport(),
                     addPersonView.getPriority()),
-                             addPersonView.getPriorityNumber());
+                    addPersonView.getPriorityNumber());
                      
                   dList.showQueue(); 
-                  System.out.println(addPersonView.getPriorityNumber());
+                  
                   
               
             

@@ -38,10 +38,16 @@ public class DoublyLinkedList <Person> {
                 //end of queue is null
                 tail.next  = null;
                 
-            } else{
-                // If p is less than or equal front  
-        // node's priority, then insert at  
-        // the front.  
+            } else if(p == 3){
+                Node temp = tail;
+                tail = newNode;
+                tail.next = null;
+                tail.previous = temp;
+            /*    
+            }else{
+                
+                
+                // If p is Low, go to the end of queue
         if (p <= (head).p) {  
             newNode.next = head;  
             (head).previous = newNode.next;  
@@ -56,7 +62,7 @@ public class DoublyLinkedList <Person> {
             tail = newNode;  
         }  
         
-             
+            */ 
             }
             
                               
