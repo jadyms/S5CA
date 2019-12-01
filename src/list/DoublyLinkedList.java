@@ -5,8 +5,6 @@
  */
 package list;
 
-import gui.Person;
-
 /**
  *
  * @author JadyMartins
@@ -46,53 +44,54 @@ public class DoublyLinkedList <Person> {
                 tail.next = null;
                 tail.previous = temp;
               
-            }else if(head.next == null && newNode.p > head.p){
-                    //If there is a single node in the list
+                        //If there is a single node in the list
                     //and
                     //new Node has higher priority (2)
-                    System.out.println("Medium person added");
-             
-                        //tail = newNode;
+            }else if(head.next == null && newNode.p > head.p){
+            
                          newNode.next = null;
-                      //  (newNode.next).previous = newNode;
-                        newNode.previous = head;
+                         newNode.previous = head;
                         head.next = newNode;
                         tail = head.next;
-                       
-                      
-                      
                         
                         System.out.println("this is the head" + head.person.toString());
-                          System.out.println("this is the tail" + tail.person.toString());
+                        System.out.println("this is the tail" + tail.person.toString());
                         
+                      //If there is a single node in the list
+                    //and
+                    //new Node has lower priority 
+            }else if(head.next == null && head.p >newNode.p){
+                Node temp = head;
+                newNode.next = temp;
+                temp.previous = newNode;
+                head = newNode;
+                tail = temp;
                         
-               
-             
-               
-               
-               /*Node pointer = head.next;
+                System.out.println("this is the head from met2" + head.person.toString());
+                        System.out.println("this is the tail from met 2" + tail.person.toString());
+                /*
+                 
+                Node pointer = head.next;
+              
               //while currently node has higher priority
               while(pointer.p > p){
-                  
-                  Node temp = pointer;
+                   pointer = pointer.next;
                   (pointer.previous).next = newNode;
-                  newNode.next = pointer;
-                  newNode.next.next = pointer.next;
-                }
-               */
-                      
+                  newNode.next = pointer.previous;
+                  newNode.previous = (pointer.previous).next;
+                  pointer.previous = newNode.next;
+                  
+                  System.out.println("this is the head" + head.person.toString());
+                  System.out.println("this is the tail" + tail.person.toString());
                  
                   
-            
-                    
-          
-        
+                  
+                }
+               */
+               
                 
-        
-            
-                
-            }
-            
+                   }
+                          
              size++;                 
         }
       
@@ -116,7 +115,7 @@ public class DoublyLinkedList <Person> {
              while(actualNode != null){
                  System.out.println(actualNode.person.toString() + "");
                  actualNode = actualNode.next;
-                System.out.println(elementAt(1) + "----Person at the top");
+              
              }
                
          }
