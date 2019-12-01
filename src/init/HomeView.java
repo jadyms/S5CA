@@ -192,7 +192,7 @@ public class HomeView extends JFrame {
                 //To manage Loyalty Card
                 JOptionPane.showMessageDialog(null, personView.populateTable());
                  DoublyLinkedList dList = new DoublyLinkedList();
-                 dList.addNode(100,1);
+                 dList.showQueue();
                
                  /*dList.addNode(new Person(
                    "1",

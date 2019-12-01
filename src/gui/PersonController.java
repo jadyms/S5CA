@@ -25,6 +25,7 @@ public class PersonController implements ActionListener, ListSelectionListener{
     AddPersonView addPersonView; 
     PersonModel personModel = new PersonModel();
     Person person = new Person();
+      DoublyLinkedList dList = new DoublyLinkedList();
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -34,7 +35,7 @@ public class PersonController implements ActionListener, ListSelectionListener{
              int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
                 addPersonView = new AddPersonView();
           
-                     DoublyLinkedList dList = new DoublyLinkedList(); 
+                    
                      dList.addNode(new Person(
                    String.valueOf(last),
                    addPersonView.getFirstName(),
