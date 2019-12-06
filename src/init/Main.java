@@ -25,7 +25,7 @@ public class Main {
            PersonModel personModel = new PersonModel();
            personModel.getPerson();
            
-           DoublyLinkedList dList = new DoublyLinkedList();  
+       //    DoublyLinkedList dList = new DoublyLinkedList();  
             
         //Add nodes to the list  
         /*
@@ -61,7 +61,7 @@ public class Main {
         */
   
         //Displays the nodes present in the list  
-        dList.showQueue();  
+        //dList.showQueue();  
            
      
            

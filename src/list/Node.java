@@ -14,10 +14,10 @@ import gui.Person;
  */
 public class Node<Person> {
     
-    Person person;
-    Node previous;
-    Node next;
-    int p;
+    public Person person;
+    public Node previous;
+    public Node next;
+    public int p;
     
     
       
@@ -27,5 +27,9 @@ public class Node<Person> {
         previous = null;
         next = null;
         }
+    
+    public String toString(){
+        return person.toString() + " " + p;
+    }
     
 }

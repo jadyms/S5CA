@@ -12,9 +12,10 @@ package list;
  */
 public class DoublyLinkedList <Person> {
     
-    Node<Person> head;
-    Node<Person>  tail;
+    public Node head;
+    public Node  tail;
     int size = 0;
+    public Person prsn;
     
     public DoublyLinkedList(){
        
@@ -23,9 +24,9 @@ public class DoublyLinkedList <Person> {
         
          
          //creating a new node
-            Node<Person> newNode = new Node(person,p);
-            
-            
+            Node newNode = new Node(person, p);
+           // prsn = person;
+                        
             if (head == null){ //list is empty
                 
                 //head  and tail points to new Node
@@ -39,10 +40,14 @@ public class DoublyLinkedList <Person> {
                 //if Priority is low(3), go straight to the end of the queue
             } else if
                 (p == 3){
-                Node temp = tail;
+                //Node temp = tail;
+                tail.next = newNode;
+                newNode.previous = tail;
                 tail = newNode;
                 tail.next = null;
-                tail.previous = temp;
+             //   System.out.println("this is the head from met1 " + head.person.toString());
+               // System.out.println("this is the tail from met 1" + tail.person.toString());
+                                
               
                         //If there is a single node in the list
                     //and
@@ -68,7 +73,9 @@ public class DoublyLinkedList <Person> {
                 tail = temp;
                         
                 System.out.println("this is the head from met2" + head.person.toString());
-                        System.out.println("this is the tail from met 2" + tail.person.toString());
+                System.out.println("this is the tail from met 2" + tail.person.toString());
+                
+                
                 /*
                  
                 Node pointer = head.next;
@@ -106,20 +113,50 @@ public class DoublyLinkedList <Person> {
         }
         return n.person.toString();
     }
+      
      public void showQueue(){
                 
-         Node actualNode = head;
+     
          if(head == null){
-             System.out.println("No one on the queue");
-         } else{
+             return;
+             
+         } 
+             Node actualNode = head;
+                         
              while(actualNode != null){
                  System.out.println(actualNode.person.toString() + "");
                  actualNode = actualNode.next;
-              
+                 System.out.println("this is the actual node" +actualNode);
              }
-               
-         }
+             
+             System.out.println("null");
             }
+     
+     
+     
+      @Override
+   public String toString() {
+       
+        String toReturn = "";
+        
+        Node current = head;
+        
+        while (current != null) { 
+            toReturn = toReturn +  current.toString() + "\n"; 
+            current = current.next; 
+        }
+       
+        return toReturn;
+   }
+            
+    public void printList(Node node) { 
+        while (node != null) { 
+            System.out.print(node.person.toString() + " "); 
+            node = node.next; 
+        } 
+    } 
+   
+
    /*
       public void addNode(Person person, int priority){
          

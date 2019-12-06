@@ -7,6 +7,7 @@ package init;
 
 import gui.AddPersonView;
 import gui.Person;
+import gui.PersonController;
 import gui.PersonModel;
 import gui.PersonView;
 import java.awt.BorderLayout;
@@ -39,7 +40,9 @@ public class HomeView extends JFrame {
     String id;
     
     PersonView personView = new PersonView();
-
+      // DoublyLinkedList dList = new DoublyLinkedList();
+//PersonController pController = new PersonController();
+    
     //first panel when system is initialized
     public HomeView() {
         HomePanel();
@@ -102,7 +105,7 @@ public class HomeView extends JFrame {
                 //Add a candidate to queue
                 
                 AddPersonView addPerson = new AddPersonView();
-                addPerson.newPersonForm();
+                //addPerson.newPersonForm();
               //  DefaultPanel customer = new DefaultPanel();
                 //customer.TwoButtonPanel("Customer","Add Customer", "Manage existing customer");
                 
@@ -191,32 +194,13 @@ public class HomeView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //To manage Loyalty Card
                 JOptionPane.showMessageDialog(null, personView.populateTable());
-                 DoublyLinkedList dList = new DoublyLinkedList();
-                 dList.showQueue();
-               
-                 /*dList.addNode(new Person(
-                   "1",
-                   "person1",
-                    "Oleary",
-                    "29-10-89",
-                    "Fm026271",
-                    "High"
-                                      
-            ),2); 
-                dList.addNode(new Person(
-                   "1",
-                   "person2",
-                    "Oleary",
-                    "29-10-89",
-                    "Fm026271",
-                    "High"
-                                      
-            ),1); 
-                
-*/
-                dList.showQueue();
-       
+                 
+                System.out.println("This is the queue");
+               // PersonController pController = new PersonController();
              
+           //  pController.dList.showQueue();       
+        
+                            
             }
         });
 

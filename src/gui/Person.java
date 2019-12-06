@@ -77,19 +77,6 @@ public class Person {
         return this.prt;
     }
     
-    /*
-     public void FillCustomerForm(String fname, String lname, String subscription, String card, String loyalty_card) {
-
-        //get user info from the db
-        //call this method passing an user as an object
-        updateCustomer = new AddCustomerView();
-        updateCustomer.addCustomer(fname, lname, subscription, card)
-                ;
-    
-
-    }
-    */
-
     @Override
     public String toString() {
         return "Person{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", doa=" + doa + ", passport=" + passport + ", queuePosition=" + priority + '}';

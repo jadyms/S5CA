@@ -34,10 +34,11 @@ public class AddPersonView extends JFrame{
        HomeView homeView;
       //  PersonModel pmodel = new PersonModel();
    PersonModel personModel= new PersonModel();
-   PersonController personController; 
+   PersonController personController;
     
     public AddPersonView(){
-        
+        personController = new PersonController(this);
+        newPersonForm();
     }
     
     //Getters
@@ -147,7 +148,7 @@ public class AddPersonView extends JFrame{
         fgbc.gridwidth = 4; //3 cell
         form.add(btnSubmit, fgbc);
         btnSubmit.setActionCommand("Submit");
-        personController = new PersonController();
+        
         btnSubmit.addActionListener(personController);
         
         //place panel in the main frame
