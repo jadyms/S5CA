@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import list.DoublyLinkedList;
 
@@ -115,11 +116,6 @@ public class HomeView extends JFrame {
 
         button2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //To manage titles options
-               // DefaultPanel customer = new DefaultPanel();
-                //customer.TwoButtonPanel("Titles","Add Title", "Manage existing title");
-                //TitlesView titles = new TitlesView();
-                //titles.TitlesPanel();
                 System.out.println(b2);
             }
         });
@@ -156,8 +152,7 @@ public class HomeView extends JFrame {
                 
             
                 
-                //DefaultPanel customer = new DefaultPanel();
-                //customer.TwoButtonPanel("Rental","Create Rental from customer Loyalty Card", "Return Rental");
+               
            
             }
         });
@@ -166,13 +161,7 @@ public class HomeView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //To manage Loyalty Card
                 JOptionPane.showMessageDialog(null, b4);
-                
-               // Model myModel = new Model();
-                //ResultSet rs = myModel.showPoints();
-
-                //LoyaltyCardView loyaltyCard = new LoyaltyCardView();
-                //loyaltyCard.viewPoints(rs);
-
+             
             }
         });
         
@@ -180,25 +169,18 @@ public class HomeView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //To manage Loyalty Card
                 JOptionPane.showMessageDialog(null, b5);
-                
-               // Model myModel = new Model();
-                //ResultSet rs = myModel.showPoints();
-
-                //LoyaltyCardView loyaltyCard = new LoyaltyCardView();
-                //loyaltyCard.viewPoints(rs);
-
+              
             }
         });
         
+        //Display the queue
         button6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //To manage Loyalty Card
-                JOptionPane.showMessageDialog(null, personView.populateTable());
-                 
-                System.out.println("This is the queue");
-               // PersonController pController = new PersonController();
-             
-           //  pController.dList.showQueue();       
+              
+               // AddPersonView addPersonView = new AddPersonView();
+              //  JOptionPane.showMessageDialog(null, personView.populateTable());
+                 //JOptionPane.showMessageDialog(null, addPersonView.populateDDL());
+                
         
                             
             }
@@ -251,9 +233,11 @@ public class HomeView extends JFrame {
         //Add Welcome message to Panel 1
         myPanel1.add(myLabel);
 
+     //   JTextArea txtArea = new JTextArea(10,10);
         //Add Buttons to Panel 2
         myPanel3.add(btn5);
         myPanel3.add(btn6);
+      //  myPanel3.add(txtArea);
         
         //Frame Layout
         BorderLayout manager = new BorderLayout();

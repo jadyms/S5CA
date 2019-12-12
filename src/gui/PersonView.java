@@ -12,10 +12,12 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -41,6 +43,7 @@ public class PersonView extends JFrame{
         private static String queuePosition;
         static JButton[] options = new JButton[3]   ;
         public static DefaultTableModel model;
+        public static ArrayList arr;
       
 
     HomeView homeView;
@@ -48,6 +51,7 @@ public class PersonView extends JFrame{
    PersonModel personModel= new PersonModel();
    PersonController personController; 
   // CustomerController customerController = new CustomerController();
+
 
     public JPanel populateTable() {
         //###### THIS CODE IN A SEPARATE METHOD #######
@@ -102,108 +106,7 @@ public class PersonView extends JFrame{
         return myPanel;
       }
     
-  /*
-     public void newPersonForm(){
-       //Panel for form 
-        JPanel form = new JPanel(new GridBagLayout());
 
-        //Setting Layout
-        GridBagConstraints fgbc = new GridBagConstraints();
-        fgbc.fill = GridBagConstraints.HORIZONTAL;
-
-        //Form Labels
-        JLabel name = new JLabel("Name: ");
-        fgbc.gridx = 0; //leftmost column
-        fgbc.gridy = 0; //top row
-        fgbc.gridwidth = 1; //1 cell
-        form.add(name, fgbc);
-
-        JLabel surname = new JLabel("Surname: ");
-        fgbc.gridx = 0; //leftmost column
-        fgbc.gridy = 1; // row 1
-        fgbc.gridwidth = 1; //1 cell
-        form.add(surname, fgbc);
-
-        JLabel dateOfArrival = new JLabel("Date of Arrival: ");
-        fgbc.gridx = 0; //leftmost column
-        fgbc.gridy = 2; // row 3
-        fgbc.gridwidth = 1; //1 cell
-        form.add(dateOfArrival, fgbc);
-
-        JLabel passport = new JLabel("Passport: ");
-        fgbc.gridx = 0; //leftmost column
-        fgbc.gridy = 3; // row 4
-        fgbc.gridwidth = 1; //1 cell
-        form.add(passport, fgbc);
-
-        JLabel priority = new JLabel("Priority: ");
-        priority.setForeground(Color.red);
-        fgbc.gridx = 0; //leftmost column
-        fgbc.gridy = 4; // row 5
-        fgbc.gridwidth = 1; //1 cell
-        form.add(priority, fgbc);
-
-        //Form textfield       
-        JTextField tfName = new JTextField(20);
-        fgbc.gridx = 1; //middle column
-        fgbc.gridy = 0; //top row
-        fgbc.gridwidth = 3; //3 cell
-        form.add(tfName, fgbc);
-
-        JTextField tfSurname = new JTextField();
-        fgbc.gridx = 1; //middle column
-        fgbc.gridy = 1; // row 1
-        fgbc.gridwidth = 3; //3 cell
-        form.add(tfSurname, fgbc);
-
-        JTextField tfDate = new JTextField();
-        fgbc.gridx = 1; //middle column
-        fgbc.gridy = 2; // row 2
-        fgbc.gridwidth = 3; //3 cell
-        form.add(tfDate, fgbc);
-
-        JTextField tfPassport = new JTextField();
-        fgbc.gridx = 1; //middle column
-        fgbc.gridy = 3; // row 2
-        fgbc.gridwidth = 3; //3 cell
-        form.add(tfPassport, fgbc);
-
-        String[] priorityLevels = {"Low", "Medium", "High"};
-        JComboBox tfPriority = new JComboBox(priorityLevels);
-        fgbc.gridx = 1; //middle column
-        fgbc.gridy = 4; // row 3
-        fgbc.gridwidth = 3; //3 cell
-        form.add(tfPriority, fgbc);
-
-        //Button
-        JButton btnSubmit = new JButton("Submit");
-        fgbc.gridx = 1; //middle column
-        fgbc.gridy = 7; // row 6
-        fgbc.gridwidth = 4; //3 cell
-        form.add(btnSubmit, fgbc);
-        btnSubmit.setActionCommand("Submit");
-        personController = new PersonController();
-        btnSubmit.addActionListener(personController);
-        
-        //place panel in the main frame
-        HomeView homeView = new HomeView("Add person to the queue ", form, "Logout", "Go back");
-
-        /*
-        
-        //Action events in the controller
-        titleController = new TitleController();
-        bsubmit.addActionListener(titleController);
-        
-                
-        
-
-                //alertDialog("Fulano: your ID is xx and position xx");
-                //inputDialog("Enter ID to find position");
-    
-     
-   }
-  
-    */
              
     
     public String getFirstName(){

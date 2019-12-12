@@ -28,7 +28,7 @@ public class PersonController implements ActionListener, ListSelectionListener{
     PersonModel personModel = new PersonModel();
     Person person = new Person();
     DoublyLinkedList<Person> dList = new DoublyLinkedList<>();
-    //ArrayList <DoublyLinkedList<Person>> aList = new ArrayList<DoublyLinkedList<Person>>();
+    ArrayList <DoublyLinkedList<Person>> aList = new ArrayList<DoublyLinkedList<Person>>();
 
     public PersonController(AddPersonView addPersonView){
         this.addPersonView = addPersonView;
@@ -77,6 +77,8 @@ public class PersonController implements ActionListener, ListSelectionListener{
             System.out.println("Printing Amilcar ");
                     
             System.out.println(dList);
+            aList.add(dList);
+            
          /*
             System.out.println(dList.size());
             System.out.println(dList.head.person.toString());
@@ -85,11 +87,11 @@ public class PersonController implements ActionListener, ListSelectionListener{
             */    
              
         }
-         //aList.add(dList);
+
+         
 
         /*
-        System.out.println("For each aList");
-                aList.forEach((person) -> System.out.println(person));
+        
                 
                 dList.printList(dList.head);
                 

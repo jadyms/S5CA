@@ -45,14 +45,62 @@ public class DoublyLinkedList <Person> {
                 newNode.previous = tail;
                 tail = newNode;
                 tail.next = null;
-             //   System.out.println("this is the head from met1 " + head.person.toString());
-               // System.out.println("this is the tail from met 1" + tail.person.toString());
+
+                //Code adapted from 
+                //https://www.geeksforgeeks.org/priority-queue-using-doubly-linked-list/
+            }else{
+                
+                //newNode has a higher priority (lower number)
+                //insert before current Node
+                if (newNode.p < head.p) {  
+                    newNode.next = head;  
+                    head.previous = newNode.next;  
+                    head = newNode;
+                }
+                
+                //newNode has a lower priority (higher number) than the tail
+                //insert after the current Node
+                //new tail point to null
+                 else if (newNode.p > tail.p) {  
+                     newNode.next = null;  
+                     tail.next = newNode; 
+                     newNode.previous = tail.next;  
+                     tail = newNode;  
+        }  
+                
+                
+//                  Node prev = null;
+//                  Node cur = head;
+//                  
+//                  //actual node has priority 1
+//                  //New node has priority 1 or 2
+//                  
+//                 //addFirst
+//             
+//                 
+//                  while(cur != null &&  newNode.p > cur.p ) {
+//                     
+//                     prev = cur;
+//                     cur = cur.next;
+//                      System.out.println("This is prev" + prev);
+//                      System.out.println("This is cur" + cur);
+//                  }
+//                  
+//                  newNode.next = prev.next;
+//                 prev.next = newNode;
+//                 newNode.previous = prev;
+//                 
+//                  
+//                  if(newNode.next != null){
+//                      newNode.next.previous = newNode;
+//                  }
+//                  //insert between cur and prev
+         
+                
                                 
-              
-                        //If there is a single node in the list
-                    //and
-                    //new Node has higher priority (2)
-            }else if(head.next == null && newNode.p > head.p){
+                /*
+                        //If new Node has higher priority (2)
+            }else if(head.next != null && newNode.p > head.p){
             
                          newNode.next = null;
                          newNode.previous = head;
@@ -76,7 +124,7 @@ public class DoublyLinkedList <Person> {
                 System.out.println("this is the tail from met 2" + tail.person.toString());
                 
                 
-                /*
+              
                  
                 Node pointer = head.next;
               

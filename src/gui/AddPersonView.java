@@ -5,6 +5,7 @@
  */
 package gui;
 
+import static gui.PersonView.arr;
 import static gui.PersonView.table;
 import init.HomeView;
 import java.awt.Color;
@@ -14,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -29,6 +31,7 @@ public class AddPersonView extends JFrame{
       private static JTextField tfPassport;
     private static JComboBox<String> priorityType;
     Priority priority;
+    public static JPanel list;
   
     
        HomeView homeView;
@@ -154,24 +157,17 @@ public class AddPersonView extends JFrame{
         //place panel in the main frame
         HomeView homeView = new HomeView("Add person to the queue ", form, "Logout", "Go back");
 
-        /*
-        
-        //Action events in the controller
-        titleController = new TitleController();
-        bsubmit.addActionListener(titleController);
-        
-                
-        */
-
-                //alertDialog("Fulano: your ID is xx and position xx");
-                //inputDialog("Enter ID to find position");
-    
      
    }
   
 
              
-
+ public JPanel  populateDDL(){
+      list = new JPanel();
+            JList detailsList =   new JList(personController.aList.toArray());
+            list.add(detailsList);
+      return list;
+ }
 
     
 }

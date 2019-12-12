@@ -25,45 +25,7 @@ public class Main {
            PersonModel personModel = new PersonModel();
            personModel.getPerson();
            
-       //    DoublyLinkedList dList = new DoublyLinkedList();  
-            
-        //Add nodes to the list  
-        /*
-        dList.addNode(new Person(
-                   "1",
-                   "Jady",
-                    "Silva",
-                    "29-10-89",
-                    "Fm026271",
-                    "High"
-                                      
-            ),2);  
-        dList.addNode(new Person(
-                   "1",
-                   "Hugh",
-                    "Oleary",
-                    "29-10-89",
-                    "Fm026271",
-                    "High"
-                                      
-            ),1);  
-        dList.addNode(new Person(
-                   "1",
-                   "Fulano",
-                    "Oleary",
-                    "29-10-89",
-                    "Fm026271",
-                    "High"
-                                      
-            ),1); 
-     
-      
-        */
-  
-        //Displays the nodes present in the list  
-        //dList.showQueue();  
-           
-     
+         
            
        // new MainScreen();
        new HomeView();
