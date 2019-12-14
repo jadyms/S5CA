@@ -161,16 +161,11 @@ public class HomeView extends JFrame {
             }
         });
 
-//        "Cut off from end of the queue"
+        //"Cut off from end of the queue"
             button4.addActionListener(personController);
-        
-        button5.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //To manage Loyalty Card
-                JOptionPane.showMessageDialog(null, b5);
-              
-            }
-        });
+            
+        //"Remove candidate from queue"
+        button5.addActionListener(personController);
         
         //Display the queue
         button6.addActionListener(new ActionListener() {

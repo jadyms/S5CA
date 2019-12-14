@@ -27,7 +27,7 @@ public class DoublyLinkedList {
          
          //creating a new node
             Node newNode = new Node(person, p);
-           // prsn = person;
+          
                         
             if (head == null){ //list is empty
                 
@@ -89,83 +89,6 @@ public class DoublyLinkedList {
                      start.previous = newNode.next;  
                  }      
    
-  
-                
-//                  Node prev = null;
-//                  Node cur = head;
-//                  
-//                  //actual node has priority 1
-//                  //New node has priority 1 or 2
-//                  
-//                 //addFirst
-//             
-//                 
-//                  while(cur != null &&  newNode.p > cur.p ) {
-//                     
-//                     prev = cur;
-//                     cur = cur.next;
-//                      System.out.println("This is prev" + prev);
-//                      System.out.println("This is cur" + cur);
-//                  }
-//                  
-//                  newNode.next = prev.next;
-//                 prev.next = newNode;
-//                 newNode.previous = prev;
-//                 
-//                  
-//                  if(newNode.next != null){
-//                      newNode.next.previous = newNode;
-//                  }
-//                  //insert between cur and prev
-         
-                
-                                
-                /*
-                        //If new Node has higher priority (2)
-            }else if(head.next != null && newNode.p > head.p){
-            
-                         newNode.next = null;
-                         newNode.previous = head;
-                        head.next = newNode;
-                        tail = head.next;
-                        
-                        System.out.println("this is the head" + head.person.toString());
-                        System.out.println("this is the tail" + tail.person.toString());
-                        
-                      //If there is a single node in the list
-                    //and
-                    //new Node has lower priority 
-            }else if(head.next == null && head.p >newNode.p){
-                Node temp = head;
-                newNode.next = temp;
-                temp.previous = newNode;
-                head = newNode;
-                tail = temp;
-                        
-                System.out.println("this is the head from met2" + head.person.toString());
-                System.out.println("this is the tail from met 2" + tail.person.toString());
-                
-                
-              
-                 
-                Node pointer = head.next;
-              
-              //while currently node has higher priority
-              while(pointer.p > p){
-                   pointer = pointer.next;
-                  (pointer.previous).next = newNode;
-                  newNode.next = pointer.previous;
-                  newNode.previous = (pointer.previous).next;
-                  pointer.previous = newNode.next;
-                  
-                  System.out.println("this is the head" + head.person.toString());
-                  System.out.println("this is the tail" + tail.person.toString());
-                 
-                  
-                  
-                }
-               */
-               
                 
                    }
                           
@@ -180,6 +103,26 @@ public class DoublyLinkedList {
           
         
       }
+      
+      public void removeFirst(){
+      
+          //list is empty
+        if (head != null) {
+            System.out.println("List is empty");
+            //list has only one element
+        }else if(head.next==null) {
+                tail = null;
+                head = null;
+                //if list has more than 1 element
+        }else{
+            //point next node to null as its previous
+                head.next.previous = null;
+                //set new head
+                head = head.next;
+            
+        }
+        
+    }
       
       public void cutOffEndQueue(int Nth, int size){
         
@@ -214,39 +157,8 @@ public class DoublyLinkedList {
           } 
           
       }
-      public String elementAt(int index){
-        if(index>size){
-            return "blah";
-        }
-        Node n = head;
-        while(index-1!=0){
-            n=n.next;
-            index--;
-        }
-        return n.person.toString();
-    }
-      
-     public void showQueue(){
-                
      
-         if(head == null){
-             return;
-             
-         } 
-             Node actualNode = head;
-                         
-             while(actualNode != null){
-                 System.out.println(actualNode.person.toString() + "");
-                 actualNode = actualNode.next;
-                 System.out.println("this is the actual node" +actualNode);
-             }
-             
-             System.out.println("null");
-            }
-     
-     
-     
-      @Override
+          @Override
    public String toString() {
        
         String toReturn = "";
@@ -261,56 +173,8 @@ public class DoublyLinkedList {
         return toReturn;
    }
             
-    public void printList(Node node) { 
-        while (node != null) { 
-            System.out.print(node.person.toString() + " "); 
-            node = node.next; 
-        } 
-    } 
-   
-
-   /*
-      public void addNode(Person person, int priority){
-         
-         //creating a new node
-            Node newNode = new Node(person);
-            
-            
-            if (head == null){ //list is empty
-                
-                //head  and tail points to new Node
-                head = newNode; 
-                tail = newNode; 
-                //before head it is null
-                head.previous = null;
-                //end of queue is null
-                tail.next  = null;
-                
-            } else{
-                
-                
-                tail.next = newNode;
-                newNode.previous = tail;
-                tail = newNode;
-                tail.next = null;
-            }
-            
-                              
-        }
-     public void showQueue(){
-                
-         Node actualNode = head;
-         if(head == null){
-             System.out.println("No one on the queue");
-         } else{
-             while(actualNode != null){
-                 System.out.println(actualNode.person.toString() + "");
-                 actualNode = actualNode.next;
-             }
-         }
-            }
-    */
-
+  
+  
     public int size(Node head) {
        
        while (head != null)  

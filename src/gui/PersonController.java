@@ -74,31 +74,26 @@ public class PersonController implements ActionListener, ListSelectionListener{
             JOptionPane.showMessageDialog(null, "Customer created. You can manage details in Manage Customer");
             System.out.println("Printing Amilcar ");
             System.out.println(dList);
-                       
-        }
-//          "Cut off from end of the queue"
-        else if(e.getActionCommand().equals("Cut off from end of the queue")){
+          
+            //          "Cut off from end of the queue"
+        }else if(e.getActionCommand().equals("Cut off from end of the queue")){
             
              int size = dList.size(dList.head.previous);
-        
-            
              int number = 1;
             
              dList.cutOffEndQueue(number, size);
                
                  System.out.println(dList);
                     
-//            System.out.println( dList.head);
-//             
-//             int number = 2;
-//            
-//             dList.cutOffEndQueue(number);
-//        
-      
-
-
-                }     
+           //"Remove candidate from queue"
+         }  else if(e.getActionCommand().equals("Remove candidate from queue")){
+             dList.removeFirst();
+             System.out.println(dList);
+             
+             
+         }   
                
+        
     }
    
         
