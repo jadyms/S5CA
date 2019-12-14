@@ -5,6 +5,7 @@
  */
 package gui;
 
+import init.HomeView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -25,14 +26,22 @@ import list.Node;
 public class PersonController implements ActionListener, ListSelectionListener{
     
     AddPersonView addPersonView; 
+    HomeView homeView;
     PersonModel personModel = new PersonModel();
     Person person = new Person();
-    DoublyLinkedList<Person> dList = new DoublyLinkedList<>();
-    ArrayList <DoublyLinkedList<Person>> aList = new ArrayList<DoublyLinkedList<Person>>();
+    static DoublyLinkedList dList = new DoublyLinkedList();
+    ArrayList <DoublyLinkedList> aList = new ArrayList<DoublyLinkedList>();
 
     public PersonController(AddPersonView addPersonView){
         this.addPersonView = addPersonView;
     }
+    
+    public PersonController(){
+        
+    }
+//        public PersonController(HomeView homeView){
+//        this.homeView = homeView;
+//    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -42,26 +51,15 @@ public class PersonController implements ActionListener, ListSelectionListener{
             
         //Create ID
         int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
-          
-             
-                dList.addNode(new Person(
-                   String.valueOf(last),
-                   addPersonView.getFirstName(),
-                    addPersonView.getLastName(),
-                     addPersonView.getDate(),
-                    addPersonView.getPassport(),
-                    addPersonView.getPriority()),
-                    addPersonView.getPriorityNumber());
-                
-                
-                
-               // System.out.println("Printing dList");
-                        
-               // System.out.println(dList.toString());
+        dList.addNode(new Person(
+                String.valueOf(last),
+                addPersonView.getFirstName(),
+                addPersonView.getLastName(),
+                addPersonView.getDate(),
+                addPersonView.getPassport(),
+                addPersonView.getPriority()),
+                addPersonView.getPriorityNumber());
                
-
-                         
-                              
             //create a new customer and add it to array
             personModel.persons.add(new Person(
                    String.valueOf(last),
@@ -75,59 +73,32 @@ public class PersonController implements ActionListener, ListSelectionListener{
             
             JOptionPane.showMessageDialog(null, "Customer created. You can manage details in Manage Customer");
             System.out.println("Printing Amilcar ");
-                    
             System.out.println(dList);
-            aList.add(dList);
-            
-         /*
-            System.out.println(dList.size());
-            System.out.println(dList.head.person.toString());
-             System.out.println(dList.tail.person.toString());
-           // System.out.println( dList.elementAt(0));
-            */    
-             
+                       
         }
-
-         
-
-        /*
-        
-                
-                dList.printList(dList.head);
-                
-     
-        System.out.println("Method show Queue");
-      dList.showQueue();
-       
-  
-        System.out.println("aList to String");
-              
-        System.out.println( aList.toString());
-           System.out.println("dList.prsn to String");
-        System.out.println(dList.prsn.toString());
-      
-        System.out.println("Head of aList" + aList.get(0).head.person.toString());
-        System.out.println("tail of aList" +aList.get(0).tail.person.toString());
-        
-        System.out.println("For each aList");
-                aList.forEach((person) -> System.out.println(person));
-                
-         /*            
-                for(DoublyLinkedList<Person> p: aList){
-    System.out.println(p.toString());
-}
-     
-         
-        
-for(int i =0; i<aList.size(); i++){
-    System.out.println(aList.get(i).toString());
+//          "Cut off from end of the queue"
+        else if(e.getActionCommand().equals("Cut off from end of the queue")){
             
-        }
-
+             int size = dList.size(dList.head.previous);
         
-       */ 
+            
+             int number = 1;
+            
+             dList.cutOffEndQueue(number, size);
+               
+                 System.out.println(dList);
+                    
+//            System.out.println( dList.head);
+//             
+//             int number = 2;
+//            
+//             dList.cutOffEndQueue(number);
+//        
       
 
+
+                }     
+               
     }
    
         

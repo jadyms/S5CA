@@ -41,14 +41,18 @@ public class HomeView extends JFrame {
     String id;
     
     PersonView personView = new PersonView();
+    PersonController personController= new PersonController();
+
       // DoublyLinkedList dList = new DoublyLinkedList();
 //PersonController pController = new PersonController();
     
     //first panel when system is initialized
-    public HomeView() {
-        HomePanel();
-    }
+    
 
+     public HomeView(){
+           HomePanel();
+
+    }
     //constructor that receives panel
     //and place it onto the frame
     public HomeView(String message, JPanel panel, String logout, String goback) {
@@ -94,7 +98,7 @@ public class HomeView extends JFrame {
         button1.setActionCommand(b1);
         button2.setActionCommand(b2);
         button3.setActionCommand(b3);
-        button4.setActionCommand(b4);
+        button4.setActionCommand("Cut off from end of the queue");
         button5.setActionCommand(b5);
         button6.setActionCommand(b6);
 
@@ -157,13 +161,8 @@ public class HomeView extends JFrame {
             }
         });
 
-        button4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //To manage Loyalty Card
-                JOptionPane.showMessageDialog(null, b4);
-             
-            }
-        });
+//        "Cut off from end of the queue"
+            button4.addActionListener(personController);
         
         button5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

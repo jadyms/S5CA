@@ -5,16 +5,18 @@
  */
 package list;
 
+import gui.Person;
+
 /**
  *
  * @author JadyMartins
  * @param <Person>
  */
-public class DoublyLinkedList <Person> {
+public class DoublyLinkedList {
     
     public Node head;
     public Node  tail;
-    int size = 0;
+    int size ;
     public Person prsn;
     
     public DoublyLinkedList(){
@@ -68,6 +70,26 @@ public class DoublyLinkedList <Person> {
                      tail = newNode;  
         }  
                 
+                
+                
+                else { 
+                     // Find position where we need to  
+                     // insert.  
+                     Node start = head.next;  
+                     //move the pointer forward
+                     //while the node priority
+                     //has a lower number (higher priority)
+                     // 1 1 3
+                     while (start.p <= newNode.p){
+                         start = start.next; 
+                     }
+                     (start.previous).next = newNode;  
+                     newNode.next = start.previous;  
+                     newNode.previous = (start.previous).next;  
+                     start.previous = newNode.next;  
+                 }      
+   
+  
                 
 //                  Node prev = null;
 //                  Node cur = head;
@@ -150,6 +172,48 @@ public class DoublyLinkedList <Person> {
              size++;                 
         }
       
+//      At any time, the staff member should have the ability 
+//      to delete a person from the system by entering
+//      in their unique ID number
+      
+      public void deleteById(int Id){
+          
+        
+      }
+      
+      public void cutOffEndQueue(int Nth, int size){
+        
+          //If List is empty
+          if(head == null){
+              System.out.println("list is empty");
+          
+          //List is smaller than elements to be deleted
+          }else if(Nth>size){
+               System.out.println("select less elements to be deleted");
+       
+               //Number of elements is lower than list size
+          }else if(Nth < size){
+              //actualNode is the tail            
+              Node actualNode = tail;
+              //pointer starting at 0
+              int start = 0;
+              //move actualNode to the previous node until pointer 
+              //reaches the Nth position 
+              //that nodes will be deleted from
+              while (actualNode.previous != null && start < Nth){
+                  actualNode = actualNode.previous;
+                  start ++;
+              }
+        
+              //pointer points to the node to be deleted
+              if (start == Nth) {
+			tail = actualNode; //current node 
+			tail.next = null; //tail points to null
+              }
+              size = (size - Nth);// decreases the list size
+          } 
+          
+      }
       public String elementAt(int index){
         if(index>size){
             return "blah";
@@ -247,9 +311,16 @@ public class DoublyLinkedList <Person> {
             }
     */
 
-    public int size() {
+    public int size(Node head) {
+       
+       while (head != null)  
+        { 
+                size++; 
+                head = head.next; 
+        } 
+  
+        return size; 
     
-        return size;
     }
      
      

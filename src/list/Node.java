@@ -20,12 +20,14 @@ public class Node<Person> {
     public int p;
     
     
+    
       
     public Node(Person person, int p){
         this.person = person;
         this.p = p;
         previous = null;
         next = null;
+                
         }
     
     public String toString(){
