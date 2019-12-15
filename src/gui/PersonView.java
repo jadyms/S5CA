@@ -7,6 +7,7 @@ package gui;
 
 
 import init.HomeView;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -94,9 +95,11 @@ public class PersonView extends JFrame{
         
         //Panel which we add the table to  table 
         JPanel myPanel = new JPanel();
+        myPanel.setLayout(new BorderLayout());
+        
         
         //Add ScrollPane to the panel
-        myPanel.add(sp);
+        myPanel.add(sp, BorderLayout.CENTER);
         
         //Populating main frame with Panel
          

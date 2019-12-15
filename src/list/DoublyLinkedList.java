@@ -107,7 +107,8 @@ public class DoublyLinkedList {
       public void removeFirst(){
       
           //list is empty
-        if (head != null) {
+        if (head == null) {
+      
             System.out.println("List is empty");
             //list has only one element
         }else if(head.next==null) {

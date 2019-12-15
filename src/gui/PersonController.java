@@ -36,42 +36,43 @@ public class PersonController implements ActionListener, ListSelectionListener{
         this.addPersonView = addPersonView;
     }
     
+    public PersonController(HomeView homeView){
+        this.homeView = homeView;
+    }
+    
     public PersonController(){
         
     }
-//        public PersonController(HomeView homeView){
-//        this.homeView = homeView;
-//    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
     
         //New Person to the queue
         if(e.getActionCommand().equals("Submit")){
-            
+           
         //Create ID
         int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
         dList.addNode(new Person(
                 String.valueOf(last),
-                addPersonView.getFirstName(),
-                addPersonView.getLastName(),
-                addPersonView.getDate(),
-                addPersonView.getPassport(),
-                addPersonView.getPriority()),
-                addPersonView.getPriorityNumber());
+                homeView.getFirstName(),
+                homeView.getLastName(),
+                homeView.getDate(),
+                homeView.getPassport(),
+                homeView.getPriority()),
+                homeView.getPriorityNumber());
                
             //create a new customer and add it to array
             personModel.persons.add(new Person(
                    String.valueOf(last),
-                   addPersonView.getFirstName(),
-                    addPersonView.getLastName(),
-                     addPersonView.getDate(),
-                    addPersonView.getPassport(),
-                    addPersonView.getPriority()
+                   homeView.getFirstName(),
+                    homeView.getLastName(),
+                     homeView.getDate(),
+                    homeView.getPassport(),
+                    homeView.getPriority()
                                       
             ));
-            
-            JOptionPane.showMessageDialog(null, "Customer created. You can manage details in Manage Customer");
+////            
+            JOptionPane.showMessageDialog(null, "Candidate added to queue");
             System.out.println("Printing Amilcar ");
             System.out.println(dList);
           

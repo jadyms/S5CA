@@ -155,7 +155,7 @@ public class AddPersonView extends JFrame{
         btnSubmit.addActionListener(personController);
         
         //place panel in the main frame
-        HomeView homeView = new HomeView("Add person to the queue ", form, "Logout", "Go back");
+    //    HomeView homeView = new HomeView("Add person to the queue ", form);
 
      
    }

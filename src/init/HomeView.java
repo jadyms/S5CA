@@ -6,23 +6,29 @@
 package init;
 
 import gui.AddPersonView;
-import gui.Person;
 import gui.PersonController;
 import gui.PersonModel;
 import gui.PersonView;
+import gui.Priority;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import list.DoublyLinkedList;
+
 
 /**
  *
@@ -36,37 +42,42 @@ public class HomeView extends JFrame {
     JDialog frame;
     JPanel panel;
     String message;
-    String logout;
-    String goback;
     String id;
     
+    private static JTextField tfFname;
+    private static JTextField tfLname;
+    private static JTextField tfDate;
+    private static JTextField tfPassport;
+    private static JComboBox<String> priorityType;
+    Priority priority;
+    public static JPanel list;
+    
     PersonView personView = new PersonView();
-    PersonController personController= new PersonController();
+    PersonController personController;
 
-      // DoublyLinkedList dList = new DoublyLinkedList();
-//PersonController pController = new PersonController();
-    
     //first panel when system is initialized
-    
 
      public HomeView(){
-           HomePanel();
+         personController = new PersonController(this); 
+         HomePanel();
+             
+          
 
     }
+     
+    
     //constructor that receives panel
     //and place it onto the frame
-    public HomeView(String message, JPanel panel, String logout, String goback) {
+    public HomeView(String message, JPanel panel) {
         this.message = message;
         this.panel = panel;
-        this.logout = logout;
-        this.goback = goback;
-        mainPanel(message, panel, logout, goback);
+        mainPanel(message, panel);
     }
 
     //creating and setting the frame
     private void newFrame() {
        frame = new JDialog(frame, "Home");
-        frame.setSize(600,600);
+        frame.setSize(1000,600);
         frame.setModal(true);
         frame.setTitle("INIS Appointment System");
         frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -77,56 +88,36 @@ public class HomeView extends JFrame {
     public void HomePanel() {
         //Creating Panel 2
         JPanel myPanel2 = new JPanel();
+   
+        JButton button2 = new JButton("Update candidate information ");
+        JButton button3 = new JButton("Check position by ID");
+        JButton button4 = new JButton("Cut off from end of the queue");
+        JButton button5 = new JButton("Remove candidate from queue");
+        JButton button6 = new JButton("Check queue");
+        JButton button7 = new JButton("Logout");
         
-        String b1 = "Add candidate to queue";
-        String b2 = "Update candidate information ";
-        String b3 = "Check position by ID";
-        String b4 = "Cut off from end of the queue";
-        String b5 = "Remove candidate from queue";
-        String b6 = "Check queue";
+         //Add Buttons to Panel 2
+        myPanel2.add(button2);
+        myPanel2.add(button3);
+        myPanel2.add(button4);
+        myPanel2.add(button5);
+        myPanel2.add(button6);
+        myPanel2.add(button7);
         
-    
-         
-        JButton button1 = new JButton(b1);
-        JButton button2 = new JButton(b2);
-        JButton button3 = new JButton(b3);
-        JButton button4 = new JButton(b4);
-        JButton button5 = new JButton(b5);
-        JButton button6 = new JButton(b6);
-
-        //Add Action command
-        button1.setActionCommand(b1);
-        button2.setActionCommand(b2);
-        button3.setActionCommand(b3);
+        button2.setActionCommand("Update candidate information ");
+        button3.setActionCommand("Check position by ID");
         button4.setActionCommand("Cut off from end of the queue");
-        button5.setActionCommand(b5);
-        button6.setActionCommand(b6);
+        button5.setActionCommand("Remove candidate from queue");
+        button6.setActionCommand("Check queue");
+        button7.setActionCommand("Logout");
 
+       //Update Info
+        button2.addActionListener(personController);
 
-        //Add Action Listeners
- 
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //Add a candidate to queue
-                
-                AddPersonView addPerson = new AddPersonView();
-                //addPerson.newPersonForm();
-              //  DefaultPanel customer = new DefaultPanel();
-                //customer.TwoButtonPanel("Customer","Add Customer", "Manage existing customer");
-                
-               
-            }
-        });
-
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(b2);
-            }
-        });
-
+         //Check position by id
         button3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //Check position by id
+        
                
                id = JOptionPane.showInputDialog(null,"Insert ID to get your position","Alert",JOptionPane.INFORMATION_MESSAGE);
                
@@ -150,62 +141,140 @@ public class HomeView extends JFrame {
                 System.out.println("no match");;
              
                     */       
-              
-                
-                        
-                
-            
-                
-               
-           
+         
             }
         });
 
         //"Cut off from end of the queue"
-            button4.addActionListener(personController);
+        button4.addActionListener(personController);
             
         //"Remove candidate from queue"
         button5.addActionListener(personController);
         
         //Display the queue
-        button6.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-              
-               // AddPersonView addPersonView = new AddPersonView();
-              //  JOptionPane.showMessageDialog(null, personView.populateTable());
-                 //JOptionPane.showMessageDialog(null, addPersonView.populateDDL());
-                
+        button6.addActionListener(personController);
         
-                            
-            }
-        });
+        //Instance of Logout Class that terminate the program     
+        Logout l = new Logout();
+        button7.addActionListener(l);
 
-        //Add Buttons to Panel 2
-        myPanel2.add(button1);
-        myPanel2.add(button2);
-        myPanel2.add(button3);
-        myPanel2.add(button4);
-        myPanel2.add(button5);
-        myPanel2.add(button6);
+       
         
-        
-      //  JPanel tablePanel = personView.populateTable();
+       JPanel tablePanel = personView.populateTable();
         JPanel container = new JPanel();
-        //myPanel2.add(tablePanel);
-        container.add(myPanel2);
-        //container.add(tablePanel);
+        JPanel form = newPersonForm();
+      ///  myPanel2.add(tablePanel);
+        
         
 
         //Panel 2 Grid layout
-        GridLayout mgr = new GridLayout(3, 2);
-        myPanel2.setLayout(mgr);
+        GridLayout glayout = new GridLayout(2,2);
+        BorderLayout mgr = new BorderLayout();
+
+        myPanel2.setLayout(glayout);
+        container.setLayout(mgr);
+        
+        container.add(form, BorderLayout.WEST);
+        container.add(myPanel2,BorderLayout.SOUTH);
+        container.add(tablePanel, BorderLayout.EAST);
 
         //Placing panel into the frame
-        mainPanel("Select an option", myPanel2, "Logout", "Go back");
+        mainPanel("INIS Queue Management", container);
 
     }
+    
+    public JPanel newPersonForm(){
+      
 
-    public void mainPanel(String message, JPanel myPanel2, String b5, String b6) {
+    //Panel for form 
+        JPanel form = new JPanel(new GridBagLayout());
+
+        //Setting Layout
+        GridBagConstraints fgbc = new GridBagConstraints();
+        fgbc.fill = GridBagConstraints.HORIZONTAL;
+        
+         JLabel addNewPerson = new JLabel("Add New Candidate");
+         fgbc.gridx = 1; //leftmost column
+        fgbc.gridy = 0; //top row
+        fgbc.gridwidth = 4; //1 cell
+         form.add(addNewPerson, fgbc);
+
+        //Form Labels
+        JLabel name = new JLabel("Name: ");
+        fgbc.gridx = 0; //leftmost column
+        fgbc.gridy = 1; //top row
+        fgbc.gridwidth = 1; //1 cell
+        form.add(name, fgbc);
+
+        JLabel surname = new JLabel("Surname: ");
+        fgbc.gridx = 0; //leftmost column
+        fgbc.gridy = 2; // row 1
+        fgbc.gridwidth = 1; //1 cell
+        form.add(surname, fgbc);
+
+        JLabel dateOfArrival = new JLabel("Date of Arrival: ");
+        fgbc.gridx = 0; //leftmost column
+        fgbc.gridy = 3; // row 3
+        fgbc.gridwidth = 1; //1 cell
+        form.add(dateOfArrival, fgbc);
+
+        JLabel passport = new JLabel("Passport: ");
+        fgbc.gridx = 0; //leftmost column
+        fgbc.gridy = 4; // row 4
+        fgbc.gridwidth = 1; //1 cell
+        form.add(passport, fgbc);
+
+        JLabel priorityLabel = new JLabel("Priority: ");
+        priorityLabel.setForeground(Color.red);
+        fgbc.gridx = 0; //leftmost column
+        fgbc.gridy = 5; // row 5
+        fgbc.gridwidth = 1; //1 cell
+        form.add(priorityLabel, fgbc);
+
+        //Form textfield       
+        tfFname = new JTextField(20);
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 1; //top row
+        fgbc.gridwidth = 3; //3 cell
+        form.add(tfFname, fgbc);
+
+         tfLname = new JTextField();
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 2; // row 1
+        fgbc.gridwidth = 3; //3 cell
+        form.add(tfLname, fgbc);
+
+        tfDate = new JTextField();
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 3; // row 2
+        fgbc.gridwidth = 3; //3 cell
+        form.add(tfDate, fgbc);
+
+        tfPassport = new JTextField();
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 4; // row 2
+        fgbc.gridwidth = 3; //3 cell
+        form.add(tfPassport, fgbc);
+
+        priorityType = new JComboBox(priority.values());
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 5; // row 3
+        fgbc.gridwidth = 3; //3 cell
+        form.add(priorityType, fgbc);
+
+        //Button
+        JButton btnSubmit = new JButton("Submit");
+        fgbc.gridx = 1; //middle column
+        fgbc.gridy = 7; // row 6
+        fgbc.gridwidth = 4; //3 cell
+        form.add(btnSubmit, fgbc);
+        btnSubmit.setActionCommand("Submit");
+        btnSubmit.addActionListener(personController);
+        return form;
+            
+    }
+
+    public void mainPanel(String message, JPanel myPanel2) {
        //Frame size
         newFrame();
         //Panel 1 for welcome message
@@ -216,23 +285,12 @@ public class HomeView extends JFrame {
         //Panel 3 for footer buttons
         JPanel myPanel3 = new JPanel();
 
-        //Logout and Go Back buttons
-        JButton btn5 = new JButton(b5);
-        JButton btn6 = new JButton(b6);
-        
-        //Instance of Logout Class that terminate the program     
-        Logout l = new Logout();
-        btn5.addActionListener(l);
+       
  
         //Add Welcome message to Panel 1
         myPanel1.add(myLabel);
 
-     //   JTextArea txtArea = new JTextArea(10,10);
-        //Add Buttons to Panel 2
-        myPanel3.add(btn5);
-        myPanel3.add(btn6);
-      //  myPanel3.add(txtArea);
-        
+            
         //Frame Layout
         BorderLayout manager = new BorderLayout();
         frame.setLayout(manager);
@@ -243,6 +301,32 @@ public class HomeView extends JFrame {
         frame.add(myPanel3, BorderLayout.SOUTH);
         frame.setVisible(true);
     }
+    
+    //Getters
+    public String getPriority() {
+        return String.valueOf(priorityType.getSelectedItem());
+    }
+    
+    public int getPriorityNumber(){
+             priority =  (Priority) priorityType.getSelectedItem();
+        return priority.getPriorityLevels();
+    }
+
+      public String getFirstName() {
+        return tfFname.getText();
+    }
+   
+      public String getLastName() {
+        return tfLname.getText();
+    }
+      
+      public String getDate() {
+        return tfDate.getText();
+    }
+       public String getPassport() {
+        return tfPassport.getText();
+    }
+    
 
 }
 
