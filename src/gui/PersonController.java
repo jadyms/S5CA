@@ -26,11 +26,12 @@ import list.Node;
 public class PersonController implements ActionListener, ListSelectionListener{
     
     AddPersonView addPersonView; 
+    PersonView personView;
     HomeView homeView;
     PersonModel personModel = new PersonModel();
-    Person person = new Person();
-    static DoublyLinkedList dList = new DoublyLinkedList();
-    ArrayList <DoublyLinkedList> aList = new ArrayList<DoublyLinkedList>();
+   Person person = new Person();
+     static DoublyLinkedList dList = new DoublyLinkedList();
+  ArrayList <DoublyLinkedList> aList = new ArrayList<DoublyLinkedList>();
 
     public PersonController(AddPersonView addPersonView){
         this.addPersonView = addPersonView;
@@ -39,6 +40,10 @@ public class PersonController implements ActionListener, ListSelectionListener{
     public PersonController(HomeView homeView){
         this.homeView = homeView;
     }
+//     public PersonController(PersonView personView){
+//        this.personView = personView;
+//    }
+//    
     
     public PersonController(){
         
@@ -49,9 +54,8 @@ public class PersonController implements ActionListener, ListSelectionListener{
     
         //New Person to the queue
         if(e.getActionCommand().equals("Submit")){
-           
-        //Create ID
-        int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
+            
+            int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
         dList.addNode(new Person(
                 String.valueOf(last),
                 homeView.getFirstName(),
@@ -60,7 +64,21 @@ public class PersonController implements ActionListener, ListSelectionListener{
                 homeView.getPassport(),
                 homeView.getPriority()),
                 homeView.getPriorityNumber());
+        
+        
                
+           
+//        //Create ID
+//        int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
+//        Person newPerson = new Person(String.valueOf(last),
+//                homeView.getFirstName(),
+//                homeView.getLastName(),
+//                homeView.getDate(),
+//                homeView.getPassport(),
+//                homeView.getPriority());
+//        Node newNode = new Node(newPerson, homeView.getPriorityNumber());
+//        dList.addNode(newNode, homeView.getPriorityNumber());
+        
             //create a new customer and add it to array
             personModel.persons.add(new Person(
                    String.valueOf(last),
@@ -71,10 +89,32 @@ public class PersonController implements ActionListener, ListSelectionListener{
                     homeView.getPriority()
                                       
             ));
+            //transform DDL in 2D array
+//          String[][] tableData = dList.doublyLinkedListToArray();
+        //  aList.add(dList);
+                                      
+//          personView.populateQueue(tableData);
+          
+         // JOptionPane.showMessageDialog(null, personView.populateQueue(tableData));
+        
+           
+            //add 2D array to Jtable
+//		this.mainView.setData(data);
+                
+//		this.myList.displayForward();
+            
+//            personModel.queue.add(dList);
 ////            
-            JOptionPane.showMessageDialog(null, "Candidate added to queue");
+           // JOptionPane.showMessageDialog(null, "Candidate added to queue");
             System.out.println("Printing Amilcar ");
             System.out.println(dList);
+           // aList.add(dList);
+            
+            homeView.clearText();
+         homeView.setText(dList.toString());
+
+      
+   
           
             //          "Cut off from end of the queue"
         }else if(e.getActionCommand().equals("Cut off from end of the queue")){
@@ -90,10 +130,16 @@ public class PersonController implements ActionListener, ListSelectionListener{
          }  else if(e.getActionCommand().equals("Remove candidate from queue")){
              dList.removeFirst();
              System.out.println(dList);
-             
-             
-         }   
+            
                
+          //"check queu"
+         }  else if(e.getActionCommand().equals("Check queue")){
+             
+             
+                
+              
+           
+         }   
         
     }
    

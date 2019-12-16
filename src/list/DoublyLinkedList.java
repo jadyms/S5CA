@@ -10,23 +10,23 @@ import gui.Person;
 /**
  *
  * @author JadyMartins
- * @param <Person>
- */
+  */
 public class DoublyLinkedList {
     
     public Node head;
     public Node  tail;
     int size ;
-    public Person prsn;
+    //public Person prsn;
     
     public DoublyLinkedList(){
        
     }
-      public void addNode(Person person, int p){
+      public void addNode(Person futureNode, int p){
         
          
          //creating a new node
-            Node newNode = new Node(person, p);
+            Node newNode =  new Node(futureNode, p);
+           
           
                         
             if (head == null){ //list is empty
@@ -158,6 +158,23 @@ public class DoublyLinkedList {
           } 
           
       }
+      
+//      public String[][] doublyLinkedListToArray(){
+//         String[][] data = new String[this.size][6];
+//		Node start = this.head;
+//		int i = 0;
+//		while (start != null) {
+//			data[i][0] = String.valueOf(start.getPerson().getId());
+//			data[i][1] = start.getPerson().getFirstname();
+//			data[i][2] = start.getPerson().getLastname();
+//			data[i][3] = start.getPerson().getDoa();
+//			data[i][4] = start.getPerson().getPassport();
+//			data[i][5] = start.getPerson().getPriority();
+//			i++;
+//			start = start.next;
+//		}
+//		return data;
+//      }
      
           @Override
    public String toString() {

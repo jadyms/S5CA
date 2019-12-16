@@ -17,6 +17,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -51,6 +52,8 @@ public class HomeView extends JFrame {
     private static JComboBox<String> priorityType;
     Priority priority;
     public static JPanel list;
+        public static JTextArea txtArea;
+
     
     PersonView personView = new PersonView();
     PersonController personController;
@@ -151,16 +154,25 @@ public class HomeView extends JFrame {
         //"Remove candidate from queue"
         button5.addActionListener(personController);
         
-        //Display the queue
+        //"Check queue"
         button6.addActionListener(personController);
         
         //Instance of Logout Class that terminate the program     
         Logout l = new Logout();
         button7.addActionListener(l);
 
+       // JPanel tablePanel = personView.populateTable();
+             
+        txtArea = new JTextArea(60,60);
+        txtArea.setEditable(false);
+        txtArea.setVisible(true);
        
+   
         
-       JPanel tablePanel = personView.populateTable();
+      
+      
+        JPanel tablePanel = new JPanel();
+             tablePanel.add(txtArea, BorderLayout.EAST);
         JPanel container = new JPanel();
         JPanel form = newPersonForm();
       ///  myPanel2.add(tablePanel);
@@ -181,6 +193,20 @@ public class HomeView extends JFrame {
         //Placing panel into the frame
         mainPanel("INIS Queue Management", container);
 
+    }
+    
+    public void clearText(){
+        txtArea.setText ("");
+    }
+    
+    public void setText(String list){
+    
+      
+      txtArea.append (list + "\n");
+      
+         
+      
+        
     }
     
     public JPanel newPersonForm(){
@@ -302,6 +328,7 @@ public class HomeView extends JFrame {
         frame.setVisible(true);
     }
     
+        
     //Getters
     public String getPriority() {
         return String.valueOf(priorityType.getSelectedItem());

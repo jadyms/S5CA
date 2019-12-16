@@ -5,8 +5,7 @@
  */
 package gui;
 
-import static gui.PersonView.arr;
-import static gui.PersonView.table;
+
 import init.HomeView;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -15,7 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
+
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -152,7 +151,7 @@ public class AddPersonView extends JFrame{
         form.add(btnSubmit, fgbc);
         btnSubmit.setActionCommand("Submit");
         
-        btnSubmit.addActionListener(personController);
+     //   btnSubmit.addActionListener(personController);
         
         //place panel in the main frame
     //    HomeView homeView = new HomeView("Add person to the queue ", form);
@@ -162,12 +161,12 @@ public class AddPersonView extends JFrame{
   
 
              
- public JPanel  populateDDL(){
-      list = new JPanel();
-            JList detailsList =   new JList(personController.aList.toArray());
-            list.add(detailsList);
-      return list;
- }
+// public JPanel  populateDDL(){
+//      list = new JPanel();
+//            JList detailsList =   new JList(personController.aList.toArray());
+//            list.add(detailsList);
+//      return list;
+// }
 
     
 }

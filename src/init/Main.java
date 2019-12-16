@@ -24,6 +24,8 @@ public class Main {
            //customers
            PersonModel personModel = new PersonModel();
            personModel.getPerson();
+            
+           
            
          
            

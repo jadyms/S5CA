@@ -23,6 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
@@ -45,6 +46,7 @@ public class PersonView extends JFrame{
         static JButton[] options = new JButton[3]   ;
         public static DefaultTableModel model;
         public static ArrayList arr;
+    
       
 
     HomeView homeView;
@@ -52,6 +54,14 @@ public class PersonView extends JFrame{
    PersonModel personModel= new PersonModel();
    PersonController personController; 
   // CustomerController customerController = new CustomerController();
+   
+    public PersonView(){
+        // personController = new PersonController(this); 
+
+    }
+   
+   
+     
 
 
     public JPanel populateTable() {
@@ -110,9 +120,8 @@ public class PersonView extends JFrame{
       }
     
 
-             
-    
-    public String getFirstName(){
+//               
+        public String getFirstName(){
         return  (String) table.getValueAt(table.getSelectedRow(), 0);
     }
     

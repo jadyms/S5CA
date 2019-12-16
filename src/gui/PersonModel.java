@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import list.DoublyLinkedList;
 
 /**
  *
@@ -18,6 +19,7 @@ import java.util.logging.Logger;
 public class PersonModel {
     
         public static ArrayList<Person> persons;
+       //  public static ArrayList<DoublyLinkedList> queue;
      // public static DoublyLinkedList<Person> persons;
     public PersonModel(){
         
@@ -62,6 +64,7 @@ public class PersonModel {
 
     }
     
+   
     public String getLastID(){
          
          int last =  Integer.parseInt(persons.get(persons.size()-1).getId())+1;

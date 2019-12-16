@@ -47,36 +47,63 @@ public class Person {
         
     }
  
-    //getters
+    //getters and setters
 
     public String getFirstname() {
         return this.firstName;
     }
+//     public void setFirstName(String firstName){
+//         this.firstName = firstName;
+//     }
 
     public String getLastname() {
         return this.lastName;
     }
+//     public void setLastName(String lastName){
+//         this.lastName = lastName;
+//     }
 
     public String getId() {
         return this.id;
     }
+//     public void setId(String id) {
+//         this.id = id;
+//    }
 
     public String getDoa() {
-        return this.doa;
+        return doa;
     }
+//    public void setDoa(String doa) {
+//        this.doa = doa;
+//    }
 
     public String getPassport() {
         return this.passport;
     }
+//     public void setPassport(String passport) {
+//        this.passport = passport;
+//    }
 
     public String getPriority() {
         return this.priority;
     }
+    
+//    public void setPriority(String priority) {
+//        this.priority = priority;
+//    }
        
      public int getPriorityNumber() {
         return this.prt;
     }
+     
+//      public void setPriorityNumber(int prt) {
+//        this.prt = prt;
+//    }
+     
     
+    
+
+     
     @Override
     public String toString() {
         return "Person{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", doa=" + doa + ", passport=" + passport + ", queuePosition=" + priority + '}';

@@ -12,13 +12,12 @@ import gui.Person;
  * @author JadyMartins
  * @param <Person>
  */
-public class Node<Person> {
+public class Node {
     
-    public Person person;
+    public  Person person;
     public Node previous;
     public Node next;
     public int p;
-    
     
     
       
@@ -27,11 +26,27 @@ public class Node<Person> {
         this.p = p;
         previous = null;
         next = null;
-                
+                 
+        
         }
+
     
+    public Person getPerson(){
+        
+               
+        return person;
+    }
+    
+    public void setPerson(Person person){
+        this.person = person;
+    }
+    
+    @Override
     public String toString(){
+        
         return person.toString() + " " + p;
     }
+    
+    
     
 }
