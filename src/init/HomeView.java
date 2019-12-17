@@ -116,37 +116,40 @@ public class HomeView extends JFrame {
 
        //Update Info
         button2.addActionListener(personController);
+          button3.addActionListener(personController);
 
          //Check position by id
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-        
-               
-               id = JOptionPane.showInputDialog(null,"Insert ID to get your position","Alert",JOptionPane.INFORMATION_MESSAGE);
-               
-                PersonModel personModel = new PersonModel();
-                
-                if(personModel.persons.contains("Hugh")){
-                    System.out.println("yes");
-                } else{
-                      System.out.println("no");
-                }
-               /*
-                    for(int i = 0; i<personModel.persons.size(); i++){
-                 int idInt = Integer.valueOf(id);
-                         System.out.println(i);
-                         
-                     int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId());     
-                    if(last == idInt ){
-                        System.out.println("they match");;
-            }
-        }
-                System.out.println("no match");;
-             
-                    */       
-         
-            }
-        });
+//        button3.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//        
+//               
+//               id = JOptionPane.showInputDialog(null,"Insert ID to get your position","Alert",JOptionPane.INFORMATION_MESSAGE);
+////               
+//
+//
+////                PersonModel personModel = new PersonModel();
+////                
+////                if(personModel.persons.contains("Hugh")){
+////                    System.out.println("yes");
+////                } else{
+////                      System.out.println("no");
+////                }
+//               /*
+//                    for(int i = 0; i<personModel.persons.size(); i++){
+//                 int idInt = Integer.valueOf(id);
+//                         System.out.println(i);
+//                         
+//                     int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId());     
+//                    if(last == idInt ){
+//                        System.out.println("they match");;
+//            }
+//        }
+//                System.out.println("no match");;
+//             
+//                    */       
+//         
+//            }
+//        });
 
         //"Cut off from end of the queue"
         button4.addActionListener(personController);
@@ -163,14 +166,10 @@ public class HomeView extends JFrame {
 
        // JPanel tablePanel = personView.populateTable();
              
-        txtArea = new JTextArea(60,60);
+        txtArea = new JTextArea(25,60);
         txtArea.setEditable(false);
         txtArea.setVisible(true);
-       
-   
         
-      
-      
         JPanel tablePanel = new JPanel();
              tablePanel.add(txtArea, BorderLayout.EAST);
         JPanel container = new JPanel();
@@ -195,18 +194,18 @@ public class HomeView extends JFrame {
 
     }
     
+    //Clear the whole queue from 
+    //the Text Area
     public void clearText(){
         txtArea.setText ("");
     }
     
+    //Display new DLL as a string in 
+    //the JText Area
     public void setText(String list){
     
-      
-      txtArea.append (list + "\n");
-      
-         
-      
         
+      txtArea.append (list + "\n");
     }
     
     public JPanel newPersonForm(){

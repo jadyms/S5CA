@@ -55,29 +55,29 @@ public class PersonController implements ActionListener, ListSelectionListener{
         //New Person to the queue
         if(e.getActionCommand().equals("Submit")){
             
-            int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
-        dList.addNode(new Person(
-                String.valueOf(last),
-                homeView.getFirstName(),
-                homeView.getLastName(),
-                homeView.getDate(),
-                homeView.getPassport(),
-                homeView.getPriority()),
-                homeView.getPriorityNumber());
-        
-        
-               
-           
-//        //Create ID
-//        int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
-//        Person newPerson = new Person(String.valueOf(last),
+//            int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
+//        dList.addNode(new Person(
+//                String.valueOf(last),
 //                homeView.getFirstName(),
 //                homeView.getLastName(),
 //                homeView.getDate(),
 //                homeView.getPassport(),
-//                homeView.getPriority());
-//        Node newNode = new Node(newPerson, homeView.getPriorityNumber());
-//        dList.addNode(newNode, homeView.getPriorityNumber());
+//                homeView.getPriority()),
+//                homeView.getPriorityNumber());
+//        
+        
+               
+           
+        //Create ID
+        int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId()) + 1;
+        Person newPerson = new Person(String.valueOf(last),
+                homeView.getFirstName(),
+                homeView.getLastName(),
+                homeView.getDate(),
+                homeView.getPassport(),
+                homeView.getPriority());
+        Node newNode = new Node(newPerson, homeView.getPriorityNumber());
+        dList.addNode(newNode, homeView.getPriorityNumber());
         
             //create a new customer and add it to array
             personModel.persons.add(new Person(
@@ -132,15 +132,17 @@ public class PersonController implements ActionListener, ListSelectionListener{
              System.out.println(dList);
             
                
-          //"check queu"
+          //"check queue"
          }  else if(e.getActionCommand().equals("Check queue")){
              
-             
-                
-              
            
-         }   
-        
+          
+        //"Check position by ID"
+         }  else if(e.getActionCommand().equals("Check position by ID")){
+            //System.out.println(dList.searchPosition(5));
+            dList.searchPosition(5);
+           
+         }
     }
    
         

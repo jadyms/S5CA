@@ -21,12 +21,12 @@ public class DoublyLinkedList {
     public DoublyLinkedList(){
        
     }
-      public void addNode(Person futureNode, int p){
+      public void addNode(Node futureNode, int p){
         
          
          //creating a new node
-            Node newNode =  new Node(futureNode, p);
-           
+           // Node newNode =  new Node(futureNode, p);
+           Node newNode = futureNode;
           
                         
             if (head == null){ //list is empty
@@ -125,6 +125,39 @@ public class DoublyLinkedList {
         
     }
       
+      //searchNode() will search a given node in the list  
+    public int searchPosition(int toFindId) {  
+        int i = 1;  
+        boolean flag = false;  
+      
+        //Node current will point to head  
+        Node current = head;  
+  
+         
+        //Checks whether the list is empty  
+        if(head == null) {  
+            System.out.println("List is empty");  
+            return -1;  
+        }  
+        while(current != null) {  
+             int nodeID = Integer.parseInt(current.getPerson().getId());
+            //Compare value to be searched with each node in the list  
+            if(nodeID == toFindId) {  
+                flag = true;  
+                break;  
+            }  
+            current = current.next;  
+            i++;  
+        }  
+        if(flag)  {
+             System.out.println("Node is present in the list at the position : " + i);  
+        return i;
+        }
+        else  
+             System.out.println("Node is not present in the list");  
+   return 0;
+    }  
+   
       public void cutOffEndQueue(int Nth, int size){
         
           //If List is empty
@@ -158,6 +191,8 @@ public class DoublyLinkedList {
           } 
           
       }
+      
+      
       
 //      public String[][] doublyLinkedListToArray(){
 //         String[][] data = new String[this.size][6];
