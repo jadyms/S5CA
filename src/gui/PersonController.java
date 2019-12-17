@@ -106,7 +106,7 @@ public class PersonController implements ActionListener, ListSelectionListener{
 //            personModel.queue.add(dList);
 ////            
            // JOptionPane.showMessageDialog(null, "Candidate added to queue");
-            System.out.println("Printing Amilcar ");
+            System.out.println("Printing DList ");
             System.out.println(dList);
            // aList.add(dList);
             
@@ -119,18 +119,29 @@ public class PersonController implements ActionListener, ListSelectionListener{
             //          "Cut off from end of the queue"
         }else if(e.getActionCommand().equals("Cut off from end of the queue")){
             
-             int size = dList.size(dList.head.previous);
-             int number = 1;
-            
-             dList.cutOffEndQueue(number, size);
-               
-                 System.out.println(dList);
+             int toBeDeleted;
+             int deletedNodes;
+             int size;
+             String message = "Elements to be removed from the end of the queue";
+             
+             toBeDeleted = homeView.displayGetId(message);
+             size = dList.size(dList.head.previous);
+             deletedNodes = dList.deleteFromEnd(toBeDeleted, size);
+             homeView.displayDeletedFromEnd(deletedNodes);
+             
+      
+                 
+         homeView.clearText();
+         homeView.setText(dList.toString());
                     
            //"Remove candidate from queue"
          }  else if(e.getActionCommand().equals("Remove candidate from queue")){
              dList.removeFirst();
              System.out.println(dList);
             
+               homeView.clearText();
+         homeView.setText(dList.toString());
+
                
           //"check queue"
          }  else if(e.getActionCommand().equals("Check queue")){
@@ -139,14 +150,14 @@ public class PersonController implements ActionListener, ListSelectionListener{
           
         //"Check position by ID"
          }  else if(e.getActionCommand().equals("Check position by ID")){
+             
              int toFindId;
              int positionFound;
+             String message = "Insert ID to get your position";
              
-             toFindId = homeView.displayGetId();
+             toFindId = homeView.displayGetId(message);
              positionFound = dList.searchPosition(toFindId);
              homeView.displayPositionFound(positionFound);
-            //System.out.println(dList.searchPosition(5));
-        
            
          }
     }

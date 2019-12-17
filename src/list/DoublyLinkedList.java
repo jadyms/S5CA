@@ -159,18 +159,25 @@ public class DoublyLinkedList {
    return 0;
     }  
    
-      public void cutOffEndQueue(int Nth, int size){
+      public int deleteFromEnd(int toBeDeleted, int size){
         
           //If List is empty
           if(head == null){
               System.out.println("list is empty");
+              return -1;
           
           //List is smaller than elements to be deleted
-          }else if(Nth>size){
+          }else if(toBeDeleted>size){
                System.out.println("select less elements to be deleted");
+                   return 0;
        
-               //Number of elements is lower than list size
-          }else if(Nth < size){
+               
+          }else if(toBeDeleted==0){
+              System.out.println("No elements will be removed"); 
+              return 2;
+          }
+          //Number of elements is lower than list size
+              else if(toBeDeleted < size){
               //actualNode is the tail            
               Node actualNode = tail;
               //pointer starting at 0
@@ -178,19 +185,20 @@ public class DoublyLinkedList {
               //move actualNode to the previous node until pointer 
               //reaches the Nth position 
               //that nodes will be deleted from
-              while (actualNode.previous != null && start < Nth){
+              while (actualNode.previous != null && start < toBeDeleted){
                   actualNode = actualNode.previous;
                   start ++;
               }
         
               //pointer points to the node to be deleted
-              if (start == Nth) {
+              if (start == toBeDeleted) {
 			tail = actualNode; //current node 
 			tail.next = null; //tail points to null
               }
-              size = (size - Nth);// decreases the list size
+              size = (size - toBeDeleted);// decreases the list size
+              
           } 
-          
+          return 1;
       }
       
       

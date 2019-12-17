@@ -196,22 +196,22 @@ public class HomeView extends JFrame {
     
     //Get the person ID and return 
     //the position in the queue
-    public int displayGetId(){
+    public int displayGetId(String message){
         //Display Dialog Box and get the ID
-      String toFindIdString = JOptionPane.showInputDialog(this,"Insert ID to get your position","Alert",JOptionPane.INFORMATION_MESSAGE);
+      String input = JOptionPane.showInputDialog(this,message,"Alert",JOptionPane.INFORMATION_MESSAGE);
 
       //Check if numeric ID was input
-      while (!isNumber(toFindIdString)) {
-          toFindIdString = JOptionPane.showInputDialog(null,"Invalid value. Please insert a numeric ID");
+      while (!isNumber(input)) {
+          input = JOptionPane.showInputDialog(null,"Invalid value. Please insert a numeric value");
       }      
       
       //Parse into integer and return it
-      int toFindId = Integer.valueOf(toFindIdString);
-      return toFindId;
+      int inputToInteger = Integer.valueOf(input);
+      return inputToInteger;
     }
         
-    //Display a message 
-     public void displayPositionFound(int positionFound){
+    //Display position in the queue from ID 
+         public void displayPositionFound(int positionFound){
          
          String positionById;
          
@@ -228,6 +228,31 @@ public class HomeView extends JFrame {
         }
            JOptionPane.showMessageDialog(this,positionById); 
     }
+     
+     //Display deleted elements
+     public void displayDeletedFromEnd(int deletedNodes){
+         
+         String positionById;
+         
+        switch (deletedNodes) {
+            case -1:
+                positionById = "There is no one in the queue";
+                break;
+            case 0:
+                positionById = "Insert a lower number. There are fewer people in the queue";
+                break;
+            case 2:
+                positionById = "No one will be removed";
+                break;
+               
+            default:
+                positionById = "Removed from the end of the queue: " + deletedNodes ;
+                break;
+        }
+           JOptionPane.showMessageDialog(this,positionById); 
+    }
+     
+     
      
       public boolean isNumber(String toFindIdString) {
 		try {
