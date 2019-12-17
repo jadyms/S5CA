@@ -139,8 +139,14 @@ public class PersonController implements ActionListener, ListSelectionListener{
           
         //"Check position by ID"
          }  else if(e.getActionCommand().equals("Check position by ID")){
+             int toFindId;
+             int positionFound;
+             
+             toFindId = homeView.displayGetId();
+             positionFound = dList.searchPosition(toFindId);
+             homeView.displayPositionFound(positionFound);
             //System.out.println(dList.searchPosition(5));
-            dList.searchPosition(5);
+        
            
          }
     }

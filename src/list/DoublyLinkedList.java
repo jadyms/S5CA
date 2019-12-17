@@ -124,6 +124,7 @@ public class DoublyLinkedList {
         }
         
     }
+      //Code from https://www.javatpoint.com/java-program-to-search-an-element-in-a-doubly-linked-list
       
       //searchNode() will search a given node in the list  
     public int searchPosition(int toFindId) {  

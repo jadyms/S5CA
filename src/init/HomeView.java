@@ -194,6 +194,50 @@ public class HomeView extends JFrame {
 
     }
     
+    //Get the person ID and return 
+    //the position in the queue
+    public int displayGetId(){
+        //Display Dialog Box and get the ID
+      String toFindIdString = JOptionPane.showInputDialog(this,"Insert ID to get your position","Alert",JOptionPane.INFORMATION_MESSAGE);
+
+      //Check if numeric ID was input
+      while (!isNumber(toFindIdString)) {
+          toFindIdString = JOptionPane.showInputDialog(null,"Invalid value. Please insert a numeric ID");
+      }      
+      
+      //Parse into integer and return it
+      int toFindId = Integer.valueOf(toFindIdString);
+      return toFindId;
+    }
+        
+    //Display a message 
+     public void displayPositionFound(int positionFound){
+         
+         String positionById;
+         
+        switch (positionFound) {
+            case -1:
+                positionById = "There is no one in the queue";
+                break;
+            case 0:
+                positionById = "ID not found in the queue";
+                break;
+            default:
+                positionById = "The person is at position " + positionFound + " in the queue";
+                break;
+        }
+           JOptionPane.showMessageDialog(this,positionById); 
+    }
+     
+      public boolean isNumber(String toFindIdString) {
+		try {
+			Integer.parseInt(toFindIdString);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
+    
     //Clear the whole queue from 
     //the Text Area
     public void clearText(){
