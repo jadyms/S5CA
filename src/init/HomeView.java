@@ -221,24 +221,24 @@ public class HomeView extends JFrame {
      
      //Display for deleted elements from the end
      public void displayDeletedFromEnd(int deletedNodes){
-         String positionById;
+         String message;
          
         switch (deletedNodes) {
             case -1:
-                positionById = "There is no one in the queue";
+                message = "There is no one in the queue";
                 break;
             case 0:
-                positionById = "Insert a lower number. There are fewer people in the queue";
+                message = "Insert a lower number. There are fewer people in the queue";
                 break;
             case 2:
-                positionById = "No one will be removed";
+                message = "No one will be removed";
                 break;
                
             default:
-                positionById = "Removed from the end of the queue: " + deletedNodes ;
+                message = "Elements will be removed from the end of the queue" ;
                 break;
         }
-           JOptionPane.showMessageDialog(this,positionById); 
+           JOptionPane.showMessageDialog(this,message); 
     }
      
       //Display message after remove first 

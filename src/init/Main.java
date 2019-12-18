@@ -11,6 +11,7 @@ import gui.PersonModel;
  * Reusing code from previous assignments - author @JadyMartins
  * Some other inspiration code
  * https://www.javatpoint.com/java-program-to-search-an-element-in-a-doubly-linked-list
+ * https://www.geeksforgeeks.org/priority-queue-using-doubly-linked-list/
  */
 public class Main {
     

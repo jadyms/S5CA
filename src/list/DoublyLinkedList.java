@@ -24,60 +24,186 @@ public class DoublyLinkedList {
           
            //list is empty
             if (head == null){ 
-                addFirst(newNode);
+                System.out.println("AddFirst"); 
+               addFirst(newNode);
                                
                 //if Priority is low(3), go straight to the end of the queue
             } else if (p == 3){
+                System.out.println("AddLast");
                 addLast(newNode);
-             
-//                tail.next = newNode;
-//                newNode.previous = tail;
-//                tail = newNode;
-//                tail.next = null;
-
-                //Code adapted from 
-                //https://www.geeksforgeeks.org/priority-queue-using-doubly-linked-list/
-            }else{
                 
-                //newNode has a higher priority (lower number)
+            //newNode has a higher priority (lower number)
                 //insert before current Node
-                if (newNode.p < head.p) {  
-                    newNode.next = head;  
-                    head.previous = newNode.next;  
-                    head = newNode;
-                }
                 
-                //newNode has a lower priority (higher number) than the tail
-                //insert after the current Node
-                //new tail point to null
-                 else if (newNode.p > tail.p) {  
-                     newNode.next = null;  
-                     tail.next = newNode; 
-                     newNode.previous = tail.next;  
-                     tail = newNode;  
-        }  
-                
-                else { 
-                     // Find position where we need to  
-                     // insert.  
-                     Node start = head.next;  
-                     //move the pointer forward
-                     //while the node priority
-                     //has a lower number (higher priority)
-                     while (start.p <= newNode.p){
-                         start = start.next; 
-                     }
-                     (start.previous).next = newNode;  
-                     newNode.next = start.previous;  
-                     newNode.previous = (start.previous).next;  
-                     start.previous = newNode.next;  
-                 }      
+            }else if (newNode.p < head.p && head.next != null) {  
+                    System.out.println("add before ");
+                    addBefore(newNode);
+                    
+            } else{
+                System.out.println("else");
+                addBetweenNodes(newNode);
+                // move the pointer until the next node has
+          //a lower priority (higher number)
+         
+//                while (head.next != null && head.next.p < newNode.p )  
+//                    head = head.next; 
+//                    
+//                System.out.println("head > " + head);
+//  
+//                /* Make the appropriate links */
+//              //  newNode.next = head.next; 
+//                newNode.next = head.next; 
+//                System.out.println("newNode.next> " + newNode.next);
+//  
+//                // if the new node is not inserted  
+//                // at the end of the list 
+//                if (head.next != null )  {
+//                    System.out.println("if do else");
+//                    newNode.next.previous = newNode.next;
+//                    System.out.println("newNode.next.previous> " + newNode.next.previous);
+//                    head.next = newNode; 
+//                    System.out.println("head.next = newNode> " + head.next );
+//                    newNode.previous = head; 
+//                    System.out.println("newNode.previous" + newNode.previous);
+//                }else if (head.next.next.p > newNode.p){
+//                    
+//                    System.out.println("aquiiii");
+//                
+//                  
+//                
+////                }else if(head.next.p > newNode.p && head.next != null){
+////                System.out.println("add before lower priority");
+////                addBeforeLowerPriority(newNode);
+////                
+////                }else if(head.next.p == newNode.p && head.next.next.p > newNode.p){
+//////                    System.out.println("add after all higher priority");
+//////                    addAfterSamePriority(newNode);
+//////                
+//////                //newNode has a lower priority (higher number) than the tail
+//////                //insert after the current Node
+//////                //new tail point to null
+//////                } else if (newNode.p > tail.p) {  
+//////                     System.out.println("lower priority than tail");
+//////                     newNode.next = null;  
+////                     tail.next = newNode; 
+////                     newNode.previous = tail.next;  
+//////                     tail = newNode;  
+////        }  
+////                
+////                else { 
+//////                     
+//////                   //  addBeforeLowerPriority(newNode);
+////////                     // Find position where we need to  
+////////                     // insert.  
+//////                     Node start = head.next;  
+//////                     //move the pointer forward
+//////                     //while the node priority
+//////                     //has a lower number (higher priority)
+////                     
+////                     if (start.p == newNode.p){
+////                     while (start.p != newNode.p){
+////                         start = start.next; 
+////                     }
+////                     (start.previous).next = newNode;  
+////                     newNode.next = start.previous;  
+////                     newNode.previous = (start.previous).next;  
+////                     start.previous = newNode.next;  
+////                 } 
+////            
+//            }    
    
                 
-                   }
+                  
                           
              size++;                 
         }
+      }
+      public void addBefore(Node newNode){
+          newNode.next = head;  
+                    head.previous = newNode.next;  
+                    head = newNode;
+      }
+      
+      
+      public void addBetweenNodes(Node newNode){
+            // move the pointer until the next node has
+          //a lower priority (higher number)
+                         while (head.next != null && head.next.p < newNode.p )  
+                    head = head.next; 
+                    
+                System.out.println("head > " + head);
+  
+                /* Make the appropriate links */
+              //  newNode.next = head.next; 
+                newNode.next = head.next; 
+                System.out.println("newNode.next> " + newNode.next);
+  
+                // if the new node is not inserted  
+                // at the end of the list 
+                if (head.next != null )  {
+                    System.out.println("if do else");
+                    newNode.next.previous = newNode.next;
+                    System.out.println("newNode.next.previous> " + newNode.next.previous);
+                    head.next = newNode; 
+                    System.out.println("head.next = newNode> " + head.next );
+                    newNode.previous = head; 
+                    System.out.println("newNode.previous" + newNode.previous);
+                }else if (head.next.next.p > newNode.p){
+                    
+                    System.out.println("aquiiii");
+            
+            }    
+      }
+      
+//      public void addAfterSamePriority(Node newNode){
+//          
+//           while (head.next != null && head.next.p > newNode.p)  
+//                    head = head.next; 
+//  
+//                /* Make the appropriate links */
+//                newNode.next = head.next; 
+//  
+//                // if the new node is not inserted  
+//                // at the end of the list 
+//                if (head.next != null)  
+//                    newNode.next.previous = newNode;  
+//  
+//                head.next = newNode;  
+//                newNode.previous = head;
+//          
+//             /* 4. Make next of new node as next of prev_node */
+//        newNode.next = prev_Node.next; 
+//  
+//        /* 5. Make the next of prev_node as new_node */
+//        prev_Node.next = new_node; 
+//  
+//        /* 6. Make prev_node as previous of new_node */
+//        new_node.prev = prev_Node; 
+//  
+//        /* 7. Change previous of new_node's next node */
+//        if (new_node.next != null) 
+//            new_node.next.prev = new_node; 
+          
+//      }
+      public void addBeforeLowerPriority(Node newNode){
+          
+          // move the pointer until the next node has
+          //a lower priority (higher number)
+                while (head.next != null && head.next.p < newNode.p)  
+                    head = head.next; 
+  
+                /* Make the appropriate links */
+                newNode.next = head.next; 
+  
+                // if the new node is not inserted  
+                // at the end of the list 
+                if (head.next != null)  
+                    
+                    newNode.next.previous = newNode;  
+  
+                head.next = newNode;  
+                newNode.previous = head;  
+      }
       
 //      At any time, the staff member should have the ability 
 //      to delete a person from the system by entering
@@ -120,11 +246,13 @@ public class DoublyLinkedList {
                 tail.next  = null;
         }
         
+        //add to the tail
         public void addLast(Node newNode){
-          
                 tail.next = newNode;
+                //point to the end of the queue
                 newNode.previous = tail;
                 tail = newNode;
+                //end of the queue
                 tail.next = null;
         }
    
