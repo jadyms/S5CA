@@ -55,6 +55,8 @@ public class PersonModel {
                             rs.getString("priority")
                     );
                     persons.add(c);
+                    
+                    //Add from the db do DLL
                     node = new Node(c, 3);
                     controller.dList.addNode(node, 3);
                 }

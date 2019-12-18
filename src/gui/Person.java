@@ -1,21 +1,20 @@
 package gui;
 
-
 /**
  *
  * @author JadyMartins
  */
 public class Person {
+
     //Person attrubutes
-    private  String id;
-    private  String firstName;
-    private  String lastName;
-    private  String doa;
-    private  String passport;
-    private  String priority;
+    private String id;
+    private String firstName;
+    private String lastName;
+    private String doa;
+    private String passport;
+    private String priority;
     private int prt;
 
-    
 //    Constructors
     public Person(String id, String firstName, String lastName, String doa, String passport, String priority) {
         this.id = id;
@@ -25,7 +24,7 @@ public class Person {
         this.passport = passport;
         this.priority = priority;
     }
-    
+
     //Conversion between priority int and string
     public Person(String id, String firstName, String lastName, String doa, String passport, int prt) {
         this.id = id;
@@ -36,10 +35,11 @@ public class Person {
         this.prt = prt;
 
     }
-    public Person(){
-        
+
+    public Person() {
+
     }
- 
+
     //getters and setters
     public String getFirstname() {
         return this.firstName;
@@ -79,32 +79,26 @@ public class Person {
     public String getPriority() {
         return this.priority;
     }
-    
+
 //    public void setPriority(String priority) {
 //        this.priority = priority;
 //    }
-       
-     public int getPriorityNumber() {
+    public int getPriorityNumber() {
         return this.prt;
     }
-     
+
 //      public void setPriorityNumber(int prt) {
 //        this.prt = prt;
 //    }
-     
-    
-    
-
 //     toString
     @Override
     public String toString() {
-        return  "PERSON:    " + "ID: " + id + 
-                "    NAME: " + firstName + 
-                "    SURNAME: " + lastName + 
-                "    DOA: " + doa + 
-                "    PASSPORT: " + passport + 
-                "   PRIORITY: " + priority ;
+        return "PERSON:    " + "ID: " + id
+                + "    NAME: " + firstName
+                + "    SURNAME: " + lastName
+                + "    DOA: " + doa
+                + "    PASSPORT: " + passport
+                + "   PRIORITY: " + priority;
     }
-   
-    
+
 }
