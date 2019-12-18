@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package init;
 
-import gui.AddPersonView;
 import gui.PersonController;
-import gui.PersonModel;
 import gui.PersonView;
 import gui.Priority;
 import java.awt.BorderLayout;
@@ -15,9 +9,6 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -28,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import list.DoublyLinkedList;
+
 
 
 /**
@@ -96,7 +87,6 @@ public class HomeView extends JFrame {
         JButton button3 = new JButton("Check position by ID");
         JButton button4 = new JButton("Cut off from end of the queue");
         JButton button5 = new JButton("Remove candidate from queue");
-        JButton button6 = new JButton("Check queue");
         JButton button7 = new JButton("Logout");
         
          //Add Buttons to Panel 2
@@ -104,19 +94,29 @@ public class HomeView extends JFrame {
         myPanel2.add(button3);
         myPanel2.add(button4);
         myPanel2.add(button5);
-        myPanel2.add(button6);
         myPanel2.add(button7);
         
         button2.setActionCommand("Update candidate information ");
+        button2.addActionListener(personController);
+        
         button3.setActionCommand("Check position by ID");
+        button3.addActionListener(personController);
+        
         button4.setActionCommand("Cut off from end of the queue");
+        button4.addActionListener(personController);
+            
         button5.setActionCommand("Remove candidate from queue");
-        button6.setActionCommand("Check queue");
+        button5.addActionListener(personController);
+      
         button7.setActionCommand("Logout");
+         //Instance of Logout Class that terminate the program     
+        Logout l = new Logout();
+        button7.addActionListener(l);
 
        //Update Info
-        button2.addActionListener(personController);
-          button3.addActionListener(personController);
+      
+        //Check position by id
+        
 
          //Check position by id
 //        button3.addActionListener(new ActionListener() {
@@ -151,33 +151,22 @@ public class HomeView extends JFrame {
 //            }
 //        });
 
-        //"Cut off from end of the queue"
-        button4.addActionListener(personController);
-            
-        //"Remove candidate from queue"
-        button5.addActionListener(personController);
         
-        //"Check queue"
-        button6.addActionListener(personController);
-        
-        //Instance of Logout Class that terminate the program     
-        Logout l = new Logout();
-        button7.addActionListener(l);
+       
 
        // JPanel tablePanel = personView.populateTable();
-             
+           
+       //Display DLL
         txtArea = new JTextArea(25,60);
         txtArea.setEditable(false);
         txtArea.setVisible(true);
         
         JPanel tablePanel = new JPanel();
-             tablePanel.add(txtArea, BorderLayout.EAST);
+               tablePanel.add(txtArea, BorderLayout.EAST);
         JPanel container = new JPanel();
         JPanel form = newPersonForm();
       ///  myPanel2.add(tablePanel);
         
-        
-
         //Panel 2 Grid layout
         GridLayout glayout = new GridLayout(2,2);
         BorderLayout mgr = new BorderLayout();
@@ -194,6 +183,8 @@ public class HomeView extends JFrame {
 
     }
     
+
+    
     //Get the person ID and return 
     //the position in the queue
     public int displayGetId(String message){
@@ -202,7 +193,7 @@ public class HomeView extends JFrame {
 
       //Check if numeric ID was input
       while (!isNumber(input)) {
-          input = JOptionPane.showInputDialog(null,"Invalid value. Please insert a numeric value");
+          input = JOptionPane.showInputDialog(this,"Invalid value. Please insert a numeric value");
       }      
       
       //Parse into integer and return it
@@ -212,7 +203,6 @@ public class HomeView extends JFrame {
         
     //Display position in the queue from ID 
          public void displayPositionFound(int positionFound){
-         
          String positionById;
          
         switch (positionFound) {
@@ -229,9 +219,8 @@ public class HomeView extends JFrame {
            JOptionPane.showMessageDialog(this,positionById); 
     }
      
-     //Display deleted elements
+     //Display for deleted elements from the end
      public void displayDeletedFromEnd(int deletedNodes){
-         
          String positionById;
          
         switch (deletedNodes) {
@@ -252,14 +241,28 @@ public class HomeView extends JFrame {
            JOptionPane.showMessageDialog(this,positionById); 
     }
      
+      //Display message after remove first 
+         public void displayRemoveFirst(int result){
+         String positionById;
+         
+        switch (result) {
+            case -1:
+                positionById = "There is no one in the queue";
+                break;
+            default:
+                positionById = "The appointment has been concluded";
+                break;
+        }
+           JOptionPane.showMessageDialog(this,positionById); 
+    }
      
-     
-      public boolean isNumber(String toFindIdString) {
+     //To check if input is valid
+      public boolean isNumber(String inputString) {
 		try {
-			Integer.parseInt(toFindIdString);
-			return true;
+			Integer.parseInt(inputString);
+			return true; //It is an integer
 		} catch (NumberFormatException e) {
-			return false;
+			return false;// Not an integer
 		}
 	}
     
@@ -272,14 +275,12 @@ public class HomeView extends JFrame {
     //Display new DLL as a string in 
     //the JText Area
     public void setText(String list){
-    
-        
       txtArea.append (list + "\n");
     }
     
+    //Form for a new Person
     public JPanel newPersonForm(){
       
-
     //Panel for form 
         JPanel form = new JPanel(new GridBagLayout());
 
@@ -367,28 +368,21 @@ public class HomeView extends JFrame {
         return form;
             
     }
-
+    
     public void mainPanel(String message, JPanel myPanel2) {
-       //Frame size
+   
         newFrame();
         //Panel 1 for welcome message
         JPanel myPanel1 = new JPanel();
         //message for Panel 1
         JLabel myLabel = new JLabel(message);//according to method calling it
-
         //Panel 3 for footer buttons
         JPanel myPanel3 = new JPanel();
-
-       
- 
         //Add Welcome message to Panel 1
         myPanel1.add(myLabel);
-
-            
         //Frame Layout
         BorderLayout manager = new BorderLayout();
         frame.setLayout(manager);
-        
         //Adding Panels to the frame
         frame.add(myPanel1, BorderLayout.NORTH);
         frame.add(myPanel2, BorderLayout.CENTER);
@@ -396,6 +390,11 @@ public class HomeView extends JFrame {
         frame.setVisible(true);
     }
     
+        //JDialog receives an input message to display
+    public void generalAlertMessage(String message){
+        JOptionPane.showMessageDialog(this,message);
+        
+    }
         
     //Getters
     public String getPriority() {

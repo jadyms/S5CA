@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package list;
 
 import gui.Person;
@@ -16,19 +11,17 @@ public class DoublyLinkedList {
     public Node head;
     public Node  tail;
     int size ;
-    //public Person prsn;
-    
+  
+//Default Constructor    
     public DoublyLinkedList(){
-       
+       this.head = null;
+       this.tail = null;
+       this.size = 0;
     }
       public void addNode(Node futureNode, int p){
-        
-         
-         //creating a new node
-           // Node newNode =  new Node(futureNode, p);
+     
            Node newNode = futureNode;
           
-                        
             if (head == null){ //list is empty
                 
                 //head  and tail points to new Node
@@ -70,8 +63,6 @@ public class DoublyLinkedList {
                      tail = newNode;  
         }  
                 
-                
-                
                 else { 
                      // Find position where we need to  
                      // insert.  
@@ -79,7 +70,6 @@ public class DoublyLinkedList {
                      //move the pointer forward
                      //while the node priority
                      //has a lower number (higher priority)
-                     // 1 1 3
                      while (start.p <= newNode.p){
                          start = start.next; 
                      }
@@ -100,71 +90,83 @@ public class DoublyLinkedList {
 //      in their unique ID number
       
       public void deleteById(int Id){
+          //call method search position and get position
           
+          //create method to delete in the middle
         
       }
       
-      public void removeFirst(){
-      
-          //list is empty
-        if (head == null) {
-      
-            System.out.println("List is empty");
-            //list has only one element
-        }else if(head.next==null) {
+      //Remove person from the top of the queue
+        public int removeFirst(){
+            //list is empty
+        if (head == null) {               
+            return -1;
+             //list has only one element           
+        }else if(head.next==null) {          
                 tail = null;
                 head = null;
-                //if list has more than 1 element
-        }else{
-            //point next node to null as its previous
-                head.next.previous = null;
-                //set new head
-                head = head.next;
+                return 1;
+             //list has more than 1 element
+        }else{                               
+                head.next.previous = null;  //point next node to null as its previous
+                head = head.next;           //set new head
             
         }
+        return 1;
         
     }
-      //Code from https://www.javatpoint.com/java-program-to-search-an-element-in-a-doubly-linked-list
-      
-      //searchNode() will search a given node in the list  
+   
+      //return position in queue given an ID
     public int searchPosition(int toFindId) {  
-        int i = 1;  
+        int pointer = 1;  //pointer start
         boolean flag = false;  
-      
-        //Node current will point to head  
-        Node current = head;  
+        Node current = head;  //node start
   
-         
         //Checks whether the list is empty  
         if(head == null) {  
             System.out.println("List is empty");  
             return -1;  
         }  
+          //Compare given ID to Current Node ID  
         while(current != null) {  
              int nodeID = Integer.parseInt(current.getPerson().getId());
-            //Compare value to be searched with each node in the list  
             if(nodeID == toFindId) {  
-                flag = true;  
+                flag = true;  //If found
                 break;  
             }  
-            current = current.next;  
-            i++;  
+            //If not found
+            current = current.next;  //go to next node
+            pointer++;  //increment pointer
         }  
+        
         if(flag)  {
-             System.out.println("Node is present in the list at the position : " + i);  
-        return i;
+             System.out.println("Node is present in the list at the position : " + pointer);  
+        return pointer;
         }
         else  
              System.out.println("Node is not present in the list");  
-   return 0;
+         return 0;
     }  
+    
+    public boolean isEmpty(){
+        try{
+            if(head == null);
+            return true; //It is empty
+        } catch (IllegalStateException e) {
+            return false;// List is not empty
+        }
+	}
+    
    
       public int deleteFromEnd(int toBeDeleted, int size){
         
           //If List is empty
           if(head == null){
+        //if(isEmpty()){
               System.out.println("list is empty");
+                     
               return -1;
+              
           
           //List is smaller than elements to be deleted
           }else if(toBeDeleted>size){
@@ -220,31 +222,26 @@ public class DoublyLinkedList {
 //		return data;
 //      }
      
-          @Override
+   //Print the list to String
+      @Override
    public String toString() {
-       
         String toReturn = "";
-        
-        Node current = head;
-        
+        Node   current = head; //pointer start
         while (current != null) { 
-            toReturn = toReturn +  current.toString() + "\n"; 
-            current = current.next; 
+               toReturn = toReturn +  current.toString() + "\n"; 
+               current = current.next; 
         }
-       
         return toReturn;
    }
             
   
-  
+  //get size of the list
     public int size(Node head) {
-       
        while (head != null)  
         { 
                 size++; 
                 head = head.next; 
         } 
-  
         return size; 
     
     }

@@ -106,7 +106,12 @@ public class Person {
      
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", doa=" + doa + ", passport=" + passport + ", queuePosition=" + priority + '}';
+        return  "PERSON:    " + "ID: " + id + 
+                "    NAME: " + firstName + 
+                "    SURNAME: " + lastName + 
+                "    DOA: " + doa + 
+                "    PASSPORT: " + passport + 
+                "   PRIORITY: " + priority ;
     }
    
     

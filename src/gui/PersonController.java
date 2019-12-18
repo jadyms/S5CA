@@ -122,21 +122,32 @@ public class PersonController implements ActionListener, ListSelectionListener{
              int toBeDeleted;
              int deletedNodes;
              int size;
-             String message = "Elements to be removed from the end of the queue";
-             
+              
+            
+                  String message = "Elements to be removed from the end of the queue";
              toBeDeleted = homeView.displayGetId(message);
-             size = dList.size(dList.head.previous);
-             deletedNodes = dList.deleteFromEnd(toBeDeleted, size);
-             homeView.displayDeletedFromEnd(deletedNodes);
              
-      
-                 
-         homeView.clearText();
-         homeView.setText(dList.toString());
-                    
+              
+             size = dList.size(dList.head.previous);
+           
+     
+             deletedNodes = dList.deleteFromEnd(toBeDeleted, size);
+             homeView.displayDeletedFromEnd(deletedNodes);               
+             homeView.clearText();
+             homeView.setText(dList.toString());
+             
+             
+             
+//                
+//            }else if (dList.isEmpty()){
+//                 throw new IllegalStateException();
+//             }
+             
            //"Remove candidate from queue"
          }  else if(e.getActionCommand().equals("Remove candidate from queue")){
-             dList.removeFirst();
+             int removeFirst;
+             removeFirst = dList.removeFirst();
+             homeView.displayRemoveFirst(removeFirst);
              System.out.println(dList);
             
                homeView.clearText();

@@ -13,6 +13,8 @@ import list.DoublyLinkedList;
 /**
  *
  * @author JadyMartins
+ * Some inspiration code
+ * https://www.javatpoint.com/java-program-to-search-an-element-in-a-doubly-linked-list
  */
 public class Main {
     
@@ -21,15 +23,9 @@ public class Main {
          //Loading all the Db into arraylists 
            //Then dealing only with the arrays
            
-           //customers
            PersonModel personModel = new PersonModel();
            personModel.getPerson();
-            
-           
-           
-         
-           
-       // new MainScreen();
+       
        new HomeView();
     }
     
