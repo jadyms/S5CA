@@ -288,6 +288,8 @@ public class DoublyLinkedList {
          return 0;
     }  
     
+    //Check if list is empty
+    //exceptions not correctly implemented
     public boolean isEmpty(){
         try{
             if(head == null);
@@ -297,7 +299,7 @@ public class DoublyLinkedList {
         }
 	}
     
-   
+   //To delete N elements from the end of the queue
       public int deleteFromEnd(int toBeDeleted, int size){
         
           //If List is empty
@@ -342,26 +344,22 @@ public class DoublyLinkedList {
           } 
           return 1;
       }
+   
+      //return person Details  given an ID
+    public String personDetails (Node head, int position) {  
+       int pointer = 1;  
+        
+    //if count equal too n return node.data  
+    if(pointer == position)  
       
+    return head.person.toString();  
       
-      
-//      public String[][] doublyLinkedListToArray(){
-//         String[][] data = new String[this.size][6];
-//		Node start = this.head;
-//		int i = 0;
-//		while (start != null) {
-//			data[i][0] = String.valueOf(start.getPerson().getId());
-//			data[i][1] = start.getPerson().getFirstname();
-//			data[i][2] = start.getPerson().getLastname();
-//			data[i][3] = start.getPerson().getDoa();
-//			data[i][4] = start.getPerson().getPassport();
-//			data[i][5] = start.getPerson().getPriority();
-//			i++;
-//			start = start.next;
-//		}
-//		return data;
-//      }
-     
+    //recursively decrease n and increase  
+    // head to next pointer  
+    return personDetails(head.next, position - 1);  
+}  
+    
+    
    //Print the list to String
       @Override
    public String toString() {

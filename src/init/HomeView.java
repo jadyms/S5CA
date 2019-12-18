@@ -83,7 +83,7 @@ public class HomeView extends JFrame {
         //Creating Panel 2
         JPanel myPanel2 = new JPanel();
    
-        JButton button2 = new JButton("Update candidate information ");
+        JButton button2 = new JButton("Update candidate information");
         JButton button3 = new JButton("Check position by ID");
         JButton button4 = new JButton("Cut off from end of the queue");
         JButton button5 = new JButton("Remove candidate from queue");
@@ -96,7 +96,7 @@ public class HomeView extends JFrame {
         myPanel2.add(button5);
         myPanel2.add(button7);
         
-        button2.setActionCommand("Update candidate information ");
+        button2.setActionCommand("Update candidate information");
         button2.addActionListener(personController);
         
         button3.setActionCommand("Check position by ID");
@@ -113,49 +113,6 @@ public class HomeView extends JFrame {
         Logout l = new Logout();
         button7.addActionListener(l);
 
-       //Update Info
-      
-        //Check position by id
-        
-
-         //Check position by id
-//        button3.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//        
-//               
-//               id = JOptionPane.showInputDialog(null,"Insert ID to get your position","Alert",JOptionPane.INFORMATION_MESSAGE);
-////               
-//
-//
-////                PersonModel personModel = new PersonModel();
-////                
-////                if(personModel.persons.contains("Hugh")){
-////                    System.out.println("yes");
-////                } else{
-////                      System.out.println("no");
-////                }
-//               /*
-//                    for(int i = 0; i<personModel.persons.size(); i++){
-//                 int idInt = Integer.valueOf(id);
-//                         System.out.println(i);
-//                         
-//                     int last = Integer.parseInt(personModel.persons.get(personModel.persons.size() - 1).getId());     
-//                    if(last == idInt ){
-//                        System.out.println("they match");;
-//            }
-//        }
-//                System.out.println("no match");;
-//             
-//                    */       
-//         
-//            }
-//        });
-
-        
-       
-
-       // JPanel tablePanel = personView.populateTable();
-           
        //Display DLL
         txtArea = new JTextArea(25,60);
         txtArea.setEditable(false);
@@ -218,6 +175,17 @@ public class HomeView extends JFrame {
         }
            JOptionPane.showMessageDialog(this,positionById); 
     }
+         
+         public int displayPersonDetails(String message){
+             String[] buttons = { "LOW", "MEDIUM", "HIGH" };
+
+    int newPriority = JOptionPane.showOptionDialog(this, message, "Select the new priority",
+        JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[0]);
+    JOptionPane.showMessageDialog(this,"Feature not developed yet :( ");
+
+    return newPriority;
+             
+         }
      
      //Display for deleted elements from the end
      public void displayDeletedFromEnd(int deletedNodes){

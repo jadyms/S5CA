@@ -65,6 +65,7 @@ public class Controller implements ActionListener{
                 dList.addNode(newNode, homeView.getPriorityNumber());
 
                     //create a new customer and add it to array
+                    //To update the db
                     personModel.persons.add(new Person(
                            String.valueOf(last),
                            homeView.getFirstName(),
@@ -120,10 +121,7 @@ public class Controller implements ActionListener{
              homeView.displayDeletedFromEnd(deletedNodes);               
              homeView.clearText();
              homeView.setText(dList.toString());
-             
-             
-             
-//                
+                          
 //            }else if (dList.isEmpty()){
 //                 throw new IllegalStateException();
 //             }
@@ -153,6 +151,20 @@ public class Controller implements ActionListener{
              positionFound = dList.searchPosition(toFindId);
              //display message according to status
              homeView.displayPositionFound(positionFound);
+         
+        //Update candidate information
+        }else if(e.getActionCommand().equals("Update candidate information")){
+             int personID;
+             int positionFound;
+             Node head = dList.head;
+             //get given id
+             String message = "Insert Person ID";
+             personID = homeView.displayGetId(message);
+             //get the details given the position
+             positionFound = dList.searchPosition(personID);
+             String personDetails = dList.personDetails(head,positionFound);
+             int answer = homeView.displayPersonDetails(personDetails);
+             
          }
     }
    
