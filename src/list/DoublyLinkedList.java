@@ -22,17 +22,18 @@ public class DoublyLinkedList {
      
            Node newNode = futureNode;
           
-            if (head == null){ //list is empty
+           //list is empty
+            if (head == null){ 
                 addFirst(newNode);
                                
                 //if Priority is low(3), go straight to the end of the queue
-            } else if
-                (p == 3){
-                //Node temp = tail;
-                tail.next = newNode;
-                newNode.previous = tail;
-                tail = newNode;
-                tail.next = null;
+            } else if (p == 3){
+                addLast(newNode);
+             
+//                tail.next = newNode;
+//                newNode.previous = tail;
+//                tail = newNode;
+//                tail.next = null;
 
                 //Code adapted from 
                 //https://www.geeksforgeeks.org/priority-queue-using-doubly-linked-list/
@@ -117,6 +118,14 @@ public class DoublyLinkedList {
                 head.previous = null;
                 //end of queue is null
                 tail.next  = null;
+        }
+        
+        public void addLast(Node newNode){
+          
+                tail.next = newNode;
+                newNode.previous = tail;
+                tail = newNode;
+                tail.next = null;
         }
    
       //return position in queue given an ID

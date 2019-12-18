@@ -7,7 +7,8 @@ import gui.PersonModel;
 /**
  *
  * @author JadyMartins
- * //Reusing code from previous assignments - author @JadyMartins
+ * github https://github.com/jadyms
+ * Reusing code from previous assignments - author @JadyMartins
  * Some other inspiration code
  * https://www.javatpoint.com/java-program-to-search-an-element-in-a-doubly-linked-list
  */
