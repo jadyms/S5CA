@@ -23,15 +23,8 @@ public class DoublyLinkedList {
            Node newNode = futureNode;
           
             if (head == null){ //list is empty
-                
-                //head  and tail points to new Node
-                head = newNode; 
-                tail = newNode; 
-                //before head it is null
-                head.previous = null;
-                //end of queue is null
-                tail.next  = null;
-                
+                addFirst(newNode);
+                               
                 //if Priority is low(3), go straight to the end of the queue
             } else if
                 (p == 3){
@@ -115,6 +108,16 @@ public class DoublyLinkedList {
         return 1;
         
     }
+        //add to the head
+        public void addFirst(Node newNode){
+                //head  and tail points to new Node
+                head = newNode; 
+                tail = newNode; 
+                //before head it is null
+                head.previous = null;
+                //end of queue is null
+                tail.next  = null;
+        }
    
       //return position in queue given an ID
     public int searchPosition(int toFindId) {  

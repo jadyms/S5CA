@@ -396,9 +396,13 @@ public class HomeView extends JFrame {
         
     }
         
-    //Getters
+    //Getters and Setters
     public String getPriority() {
         return String.valueOf(priorityType.getSelectedItem());
+    }
+    
+    public void setFirstName(String firstName){
+       this.tfFname.setText(firstName);
     }
     
     public int getPriorityNumber(){

@@ -1,6 +1,7 @@
 package list;
 
 import gui.Person;
+import gui.PersonModel;
 
 /**
  *
@@ -15,6 +16,7 @@ public class Node {
     public Node previous;
     public Node next;
     public int p; //priority
+    PersonModel personModel;
       
     //Constructor
     public Node(Person person, int p){
@@ -23,6 +25,11 @@ public class Node {
         previous = null;
         next = null;
         }
+    
+    public Node(PersonModel personModel){
+        this.personModel = personModel;
+        
+    }
     
     //Getters and setters    
     public Person getPerson(){

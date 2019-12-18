@@ -20,7 +20,7 @@ public class Main {
            
            PersonModel personModel = new PersonModel();
            personModel.getPerson();
-       
+           
        new HomeView();
     }
     

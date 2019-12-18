@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui;
 
 import java.sql.Connection;
@@ -14,12 +9,12 @@ import java.sql.Statement;
  * @author JadyMartins
  */
 public class Model {
-    
+    //Connection with the db
 
     Connection conn = null;
     Statement stmt = null;
     ResultSet rs = null;
-    db newdb; //Connection with the db
+    db newdb; 
 
     public Model() {
 
