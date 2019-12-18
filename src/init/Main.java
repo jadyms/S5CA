@@ -15,6 +15,8 @@ public class Main {
 
         //Loading all the Db into arraylists 
         //Then dealing only with the DLL
+        //When the first person is added to the queue, the db data 
+        //is also displayed
         PersonModel personModel = new PersonModel();
         personModel.getPerson();
 

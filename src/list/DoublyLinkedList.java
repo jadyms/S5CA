@@ -45,8 +45,9 @@ public class DoublyLinkedList {
             System.out.println("else"); 
             addBetweenNodes(newNode);
              
-            size++; //increments the list size
+        
         }
+            size++; //increments the list size
     }
 
     //Add before a node
