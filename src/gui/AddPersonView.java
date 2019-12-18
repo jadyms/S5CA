@@ -1,4 +1,4 @@
-/*
+/*;
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -36,12 +36,12 @@ public class AddPersonView extends JFrame{
        HomeView homeView;
       //  PersonModel pmodel = new PersonModel();
    PersonModel personModel= new PersonModel();
-   PersonController personController;
+   Controller personController;
     
-    public AddPersonView(){
-        personController = new PersonController(this);
-        newPersonForm();
-    }
+//    public AddPersonView(){
+//        personController = new Controller(this);
+//        newPersonForm();
+//    }
     
     //Getters
     public String getPriority() {

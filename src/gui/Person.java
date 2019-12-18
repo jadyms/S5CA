@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui;
 
 
@@ -11,8 +6,7 @@ package gui;
  * @author JadyMartins
  */
 public class Person {
-    //attrubutes
-    
+    //Person attrubutes
     private  String id;
     private  String firstName;
     private  String lastName;
@@ -20,9 +14,9 @@ public class Person {
     private  String passport;
     private  String priority;
     private int prt;
-   
- //  PersonView personView = new PersonView();
 
+    
+//    Constructors
     public Person(String id, String firstName, String lastName, String doa, String passport, String priority) {
         this.id = id;
         this.firstName = firstName;
@@ -30,7 +24,6 @@ public class Person {
         this.doa = doa;
         this.passport = passport;
         this.priority = priority;
-
     }
     
     //Conversion between priority int and string
@@ -48,7 +41,6 @@ public class Person {
     }
  
     //getters and setters
-
     public String getFirstname() {
         return this.firstName;
     }
@@ -103,7 +95,7 @@ public class Person {
     
     
 
-     
+//     toString
     @Override
     public String toString() {
         return  "PERSON:    " + "ID: " + id + 

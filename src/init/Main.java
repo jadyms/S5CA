@@ -1,19 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package init;
 
-import gui.Person;
 import gui.PersonModel;
-import gui.PersonView;
-import list.DoublyLinkedList;
+
 
 /**
  *
  * @author JadyMartins
- * Some inspiration code
+ * //Reusing code from previous assignments - author @JadyMartins
+ * Some other inspiration code
  * https://www.javatpoint.com/java-program-to-search-an-element-in-a-doubly-linked-list
  */
 public class Main {

@@ -1,7 +1,7 @@
 
 package init;
 
-import gui.PersonController;
+import gui.Controller;
 import gui.PersonView;
 import gui.Priority;
 import java.awt.BorderLayout;
@@ -47,12 +47,12 @@ public class HomeView extends JFrame {
 
     
     PersonView personView = new PersonView();
-    PersonController personController;
+    Controller personController;
 
     //first panel when system is initialized
 
      public HomeView(){
-         personController = new PersonController(this); 
+         personController = new Controller(this); 
          HomePanel();
              
           

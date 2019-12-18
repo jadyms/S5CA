@@ -52,11 +52,11 @@ public class PersonView extends JFrame{
     HomeView homeView;
       //  PersonModel pmodel = new PersonModel();
    PersonModel personModel= new PersonModel();
-   PersonController personController; 
+   Controller personController; 
   // CustomerController customerController = new CustomerController();
    
     public PersonView(){
-        // personController = new PersonController(this); 
+        // personController = new Controller(this); 
 
     }
    
@@ -101,7 +101,7 @@ public class PersonView extends JFrame{
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.setPreferredScrollableViewportSize(table.getPreferredSize());
         table.setFillsViewportHeight(false);
-        table.getSelectionModel().addListSelectionListener(personController);
+//        table.getSelectionModel().addListSelectionListener(personController);
         
         //Panel which we add the table to  table 
         JPanel myPanel = new JPanel();
